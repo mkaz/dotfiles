@@ -1,0 +1,6 @@
+node_modules
+dist/
+build/
+.git/
+package-lock.json
+__pycache__

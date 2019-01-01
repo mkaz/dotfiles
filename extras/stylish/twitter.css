@@ -1,0 +1,22 @@
+
+.moments,
+li[data-suggestion-json*="ActivityTweet"],
+li.promoted-trend,
+li.promoted-account,
+div.promoted-tweet,
+div.flex-module.trends-container,
+div.flexmodule.trends,
+div.module.trends,
+div.module.roaming-module.wtf-module.js-wtf-module.has-content,
+div.Footer.module.roaming-module,
+div.ProfileWTFAndTrends,
+div.trends-inner,
+div.flex-module.import-prompt {
+    display: none !important
+}
+
+div.module.Trends.trends,
+div.RelatedUsers.module {
+    display: none !important
+}
+

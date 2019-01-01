@@ -1,0 +1,30 @@
+# newsboat config
+
+browser "firefox"
+text-width 72
+reload-threads 8
+
+# navigation
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key j down article
+bind-key k up article
+
+
+# colors
+color background         default   default
+color listnormal         default   default
+color listnormal_unread  default   default
+color listfocus          black     yellow
+color listfocus_unread   black     yellow
+color info               black	   blue
+color article            default   default
+
+# highlights
+highlight article "^(Title):.*$" green default
+highlight article "https?://[^ ]+" blue default
+highlight article "\\[image\\ [0-9]+\\]" green default
