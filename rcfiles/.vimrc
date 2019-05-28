@@ -120,6 +120,12 @@ nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>, :Buffers<CR>
 noremap <Leader>f :Rg<space>
 
+" Gooey bits
+set guifont=Hack\ 16
+set guioptions-=T  "toolbar
+set guioptions-=r  "scrollbar
+" set guioptions-=m  "menu bar
+
 " File Specific
 
 augroup configgroup
@@ -157,6 +163,9 @@ augroup END
 
 " Key Bindings
 
+" Force close all the things
+nnoremap ZQ :qa!<CR>
+
 " :w!! to save with sudo
 ca w!! w !sudo tee >/dev/null "%"
 
@@ -168,10 +177,12 @@ noremap <Leader><Space> :nohlsearch<CR>
 map <Leader>/ gcc
 
 " Buffer Navigation
-nnoremap <Leader>3 :b#<CR>    " previous buffer
-nnoremap <Leader>n :bn<CR>    " next buffer
-nnoremap Q :bd!<CR>           " close buffer
+nnoremap <Leader>n :enew<CR>  " new buffer
+nnoremap <Tab> :bnext<CR>     " next buffer
+nnoremap <S-Tab> :bprev<CR>   " previous buffer
+nnoremap <Leader>3 :b#<CR>    " recent buffer
 nnoremap <Leader>a :only<CR>  " only buffer
+nnoremap Q :bd!<CR>           " close buffer
 
 " Bubble single lines
 nnoremap <C-Up> :m .-2<CR>
@@ -189,22 +200,25 @@ nmap <Leader>" ysiw"
 noremap <F1> <Esc>
 inoremap <F1> <Esc>
 
-" Map F1 to ESC
+" F2 to toggle wrap
 noremap <F2> :set wrap!<CR>
 inoremap <F2> :set wrap!<CR>
 
-" toggle show whitespace
+" F3 to toggle whitespace
 noremap <F3> :set list!<CR>
 
 " Insert Date
 :nnoremap <F4> "=strftime("%A, %Y-%m-%d %I:%M%P ")<CR>P
 :inoremap <F4> <C-R>=strftime("%A, %Y-%m-%d %I:%M%P ")<CR>
 
-" Toggle Spellcheck
+" F5 to toggle Spellcheck
 :noremap <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Add semi colon at end of line
 noremap <Leader>; g_a;<Esc>
+
+" Use K to 'krack' a line, opposite of J
+nnoremap K i<CR><Esc>k$
 
 " Add Spaces inside parentheses, WordPress Style
 noremap <Leader>o ci(<space><space><Esc>hp
