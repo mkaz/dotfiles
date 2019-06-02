@@ -10,13 +10,12 @@ export HISTCONTROL="ignoredups:erasedups"
 export HISTSIZE=99999
 export HISTFILESIZE=99999
 shopt -s histappend
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a"
 
 export HOSTNAME="`hostname`"
 export PAGER='less'
 export EDITOR='vim'
 export SVN_EDITOR='vim'
-export GNUTERM=x11
 export GPG_TTY=$(tty)
 
 # Go
@@ -50,6 +49,7 @@ alias django='python manage.py'
 alias ff='find . | grep'
 alias mtr='sudo mtr'
 alias o='xdg-open'
+alias pacman='sudo pacman'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias python='python3'
@@ -74,7 +74,17 @@ alias ls-l='ls -l'
 source ~/dotfiles/prompt
 
 # load autojump
-source /usr/share/autojump/autojump.sh
+if [[ -e /usr/share/autojump/autojump.sh ]]; then
+    source /usr/share/autojump/autojump.sh
+elif [[ -e /usr/share/autojump/autojump.bash ]]; then
+    source /usr/share/autojump/autojump.bash
+fi
+
+if [[ -e /usr/share/git/git-prompt.sh ]]; then
+    source /usr/share/git/git-prompt.sh
+elif [[ -e ~/dotfiles/extras/git-completion.bash ]]; then
+    source ~/dotfiles/extras/git-completion.bash
+fi
 
 # dircolors
 eval $(dircolors /home/mkaz/dotfiles/extras/dircolors)
@@ -91,7 +101,11 @@ if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
     source ~/dotfiles/rcfiles/.fzf.bash
 fi
 
-if [[ -e ~/dotfiles/extras/git-completion.bash ]]; then
-    source ~/dotfiles/extras/git-completion.bash
+if [[ -e ~/dotfiles/extras/pass.bash-completion ]]; then
+    source ~/dotfiles/extras/pass.bash-completion
+fi
+
+if hash cowsay 2>/dev/null; then
+    curl --silent https://icanhazdadjoke.com | cowsay
 fi
 
