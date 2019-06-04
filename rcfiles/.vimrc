@@ -80,8 +80,10 @@ set scrolloff=2       " scroll 2 lines top/bottom
 set hidden            " allows to switch to/from unsaved buffers
 set nobackup
 
-set modeline          " use modeline override
-set modelines=2       " check last two lines
+" Disabled for Security
+" See: https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
+" set nomodeline          " use modeline override
+" set modelines=2       " check last two lines
 set mouse=a           " enable mouse support
 
 " move updown by visual (wrapped) lines
