@@ -7,82 +7,63 @@ cd $HOME
 
 rm -f .profile
 ln -s dotfiles/profile .profile
-ln -s ~/Documents/Sync/pass-store .password-store
+echo "source $HOME/.profile >>$HOME/.bashrc"
 
-mkdir ~/bin/
-mkdir ~/src/
-mkdir ~/tmp/
-mkdir ~/Downloads/
+dirs=("$HOME/bin $HOME/.fonts $HOME/src $HOME/tmp $HOME/Downloads $HOME/.npm-global")
+for d in "${dirs[@]}"; do
+    mkdir $d
+done
 
 ## update & upgrade
-sudo pacman -Sy
+sudo pacman -Syu --noconfirm
 
 ## setup the basics
-sudo pacman -S stow
+sudo pacman -S --noconfirm stow ctags pwgen net-tools dnsutils htop autossh binutils
+sudo pacman -S --noconfirm pass autojump task neofetch ripgrep figlet
+sudo pacman -S --noconfirm pngcrush pandoc peek gpick cowsay albert
 
-## use stow to configure rcfiles
-cd ~/dotfiles/
+## Setup configs
+cd $HOME/dotfiles/
 stow rcfiles
-
-#  _               _
-# | |__   __ _ ___(_) ___ ___
-# | '_ \ / _` / __| |/ __/ __|
-# | |_) | (_| \__ \ | (__\__ \
-# |_.__/ \__,_|___/_|\___|___/
-
-sudo pacman -S ctags pwgen net-tools dnsutils htop autossh
-sudo pacman -S pass autojump task neofetch ripgrep figlet
-sudo pacman -S pngcrush pandoc peek gpick
-
-mkdir ~/.fonts
-cd ~/.fonts
-unzip $HOME/dotfiles/extras/fonts.zip
-cd
+ln -s $HOME/Documents/Sync/pass-store $HOME/.password-store
 
 # syncthing
-if [ ! -f "$HOME/bin/syncthing" ]; then
-    cd $HOME/Downloads
-    wget https://github.com/syncthing/syncthing/releases/download/v1.1.3/syncthing-linux-amd64-v1.1.3.tar.gz
-    tar xfz syncthing-linux-amd64-v1.1.3.tar.gz
-    cp syncthing-linux-amd64-v1.1.3/syncthing $HOME/bin/
-    mkdir -p $HOME/.config/autostart
-    cp $HOME/dotfiles/extras/autostart-syncthing.desktop $HOME/.config/autostart/syncthing.desktop
-    cd
-fi
+sudo pacman -S --noconfirm syncthing
+sudo systemctl enable syncthing@mkaz.service
+sudo systemctl start syncthing@mkaz.service
 
-# click to dock icon to minimize
+cd $HOME/.fonts
+unzip $HOME/dotfiles/extras/fonts.zip
+
+# Settings
+# gnome-terminal colorscheme
+/bin/bash $HOME/dotfiles/extras/gnome-terminal-onedark.sh
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+rm $HOME/.config/autostart/create-template.desktop
 
-#  ___ _ __   __ _ _ __  ___
-# / __| '_ \ / _` | '_ \/ __|
-# \__ \ | | | (_| | |_) \__ \
-# |___/_| |_|\__,_| .__/|___/
-#                 |_|
-sudo snap install slack --classic
-
-# Node
-cd $HOME/Downloads
-curl --silent --location https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get -y install nodejs
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-
-# Golang
-sudo pacman -S go
+# Programming
+sudo pacman -S --noconfirm nodejs go
+npm config set prefix "$HOME/.npm-global"
 
 # LAMP
-sudo pacman -S mysql-client mysql-server memcached
-sudo pacman -S php php-cli php-common php-curl php-dev php-memcached php-mysql php-json php-mbstring php-intl php-xml
-sudo pacman -S apache2 libapache2-mod-php
-sudo a2enmod rewrite expires vhost_alias ssl
+sudo pacman -S --noconfirm mariadb memcached apache
+sudo pacman -S --noconfirm php composer php-memcached php-intl php-apache php-imagick
+
+# Apache
+sudo systemctl enable httpd
+sudo systemctl start httpd
+
+# MariaDB
+mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl enable mysqld
+sudo systemctl start mysqld
 
 # wp cli
 if [ ! -f "$HOME/bin/wp" ]; then
     cd $HOME/Downloads
     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar
-    cp wp-cli.phar $HOME/bin/wp
-    cd
+    mv wp-cli.phar $HOME/bin/wp
 fi
 
 # configure firewall
@@ -93,6 +74,6 @@ sudo ufw enable
 
 # install hub
 GOPATH=/home/mkaz go get github.com/github/hub
-GOPATH=/home/mkaz go get github.com/jesseduffield/lazygit
+GOPATH=/home/mkaz go get github.com/mkaz/hastie
+GOPATH=/home/mkaz go get github.com/mkaz/wpsync
 
-# vim: syntax=sh ts=4 sw=4 sts=4 sr et

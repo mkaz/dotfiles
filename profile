@@ -42,10 +42,11 @@ alias xps='ps -aef '
 alias xpsg='ps -aef | grep -i'
 
 # shortcuts
-alias apache='sudo service apache2'
+apache() {
+    sudo systemctl $1 httpd
+}
+
 alias apt='sudo apt'
-alias djangoenv='source $HOME/.virtualenvs/djangodev/bin/activate'
-alias django='python manage.py'
 alias ff='find . | grep'
 alias mtr='sudo mtr'
 alias o='xdg-open'
@@ -59,7 +60,7 @@ alias t='task'
 alias top='htop'
 alias vihosts='sudo vim /etc/hosts'
 alias visudo='sudo visudo'
-alias vaconf='sudo vim /etc/apache2/sites-available/000-default.conf'
+alias vaconf='sudo vim /etc/httpd/conf/vhosts.conf'
 
 # moving around
 alias cd..='cd ..'
@@ -74,23 +75,20 @@ alias ls-l='ls -l'
 source ~/dotfiles/prompt
 
 # load autojump
-if [[ -e /usr/share/autojump/autojump.sh ]]; then
-    source /usr/share/autojump/autojump.sh
-elif [[ -e /usr/share/autojump/autojump.bash ]]; then
+if [[ -e /usr/share/autojump/autojump.bash ]]; then
     source /usr/share/autojump/autojump.bash
 fi
 
 if [[ -e /usr/share/git/git-prompt.sh ]]; then
     source /usr/share/git/git-prompt.sh
-elif [[ -e ~/dotfiles/extras/git-completion.bash ]]; then
+fi
+
+if [[ -e ~/dotfiles/extras/git-completion.bash ]]; then
     source ~/dotfiles/extras/git-completion.bash
 fi
 
 # dircolors
 eval $(dircolors /home/mkaz/dotfiles/extras/dircolors)
-
-# dont bother me
-unset command_not_found_handle
 
 # run host specific profile
 if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then

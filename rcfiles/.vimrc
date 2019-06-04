@@ -26,12 +26,12 @@ Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
 Plug 'fatih/vim-go'                   " golang support
 Plug 'itchyny/lightline.vim'          " fancy status line
+Plug 'joshdick/onedark.vim'           " fancy colors
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'               " fuzzy search
 Plug 'junegunn/goyo.vim'              " writing
 Plug 'junegunn/vim-slash'             " search highlighting
 Plug 'mattn/calendar-vim'             " calendar works with wiki
-Plug 'mhartington/oceanic-next'       " pretty colors
 Plug 'rhysd/git-messenger.vim'        " inline git blame
 Plug 'reedes/vim-wordy'               " grammar check
 Plug 'sirver/ultisnips'               " snippets
@@ -51,7 +51,7 @@ syntax on
 if has( "termguicolors" )
     set termguicolors
 endif
-colorscheme OceanicNext
+colorscheme onedark
 
 " Whitespace stuff
 set expandtab
@@ -66,6 +66,7 @@ set linebreak
 
 " hidden characters
 set listchars=tab:▸\ ,eol:¬
+set timeoutlen=1000 ttimeoutlen=0
 
 " Display
 set number            " show line numbers
@@ -237,16 +238,20 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 " Lightline
 let g:lightline = {
-    \ 'colorscheme': 'oceanicnext',
+    \ 'colorscheme': 'onedark',
     \ 'active' : {
     \   'left' : [ [ 'mode', 'paste' ],
     \       [ 'readonly', 'filename', 'modified', ] ],
     \   'right' : [ [ 'lineinfo' ],
     \               [ 'filetype' ],
-    \               [ 'buffernum' ] ]
+    \               [ 'wordcount' ],
+    \             ]
     \ },
     \ 'component': {
     \   'buffernum': '%n'
+    \ },
+    \ 'component_function': {
+    \   'wordcount': 'WordCount'
     \ },
     \ }
 
@@ -275,3 +280,32 @@ augroup vimwikigroup
     " autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
 augroup end
 
+function! WordCount()
+    let currentmode = mode()
+    if !exists("g:lastmode_wc")
+        let g:lastmode_wc = currentmode
+    endif
+    " if we modify file, open a new buffer, be in visual ever, or switch modes
+    " since last run, we recompute.
+    if &modified || !exists("b:wordcount") || currentmode =~? '\c.*v' || currentmode != g:lastmode_wc
+        let g:lastmode_wc = currentmode
+        let l:old_position = getpos('.')
+        let l:old_status = v:statusmsg
+        execute "silent normal g\<c-g>"
+        if v:statusmsg == "--No lines in buffer--"
+            return 'Empty'
+        else
+            let s:split_wc = split(v:statusmsg)
+            if index(s:split_wc, "Selected") < 0
+                let b:wordcount = str2nr(s:split_wc[11])
+            else
+                let b:wordcount = str2nr(s:split_wc[5])
+            endif
+            let v:statusmsg = l:old_status
+        endif
+        call setpos('.', l:old_position)
+        return b:wordcount . ' words'
+    else
+        return b:wordcount . ' words'
+    endif
+endfunction
