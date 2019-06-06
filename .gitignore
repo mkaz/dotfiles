@@ -1,2 +1,6 @@
 rcfiles/.vim/.netrwhist
 .DS_Store
+rcfiles/.newsboat/cache.db
+rcfiles/.newsboat/history.cmdline
+rcfiles/.newsboat/history.search
+
