@@ -18,7 +18,8 @@ done
 sudo pacman -Syu --noconfirm
 
 ## setup the basics
-sudo pacman -S --noconfirm stow ctags pwgen net-tools dnsutils htop autossh binutils
+sudo pacman -S --noconfirm binutils make
+sudo pacman -S --noconfirm stow ctags pwgen net-tools dnsutils htop autossh 
 sudo pacman -S --noconfirm pass autojump task neofetch ripgrep figlet
 sudo pacman -S --noconfirm pngcrush pandoc peek gpick cowsay albert
 
