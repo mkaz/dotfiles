@@ -55,7 +55,7 @@ sudo systemctl enable httpd
 sudo systemctl start httpd
 
 # MariaDB
-mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl enable mysqld
 sudo systemctl start mysqld
 
