@@ -96,7 +96,6 @@ let g:python3_host_prog = '/usr/bin/python3'
 set novisualbell
 set nobackup
 set noerrorbells
-autocmd VimEnter * set vb t_vb=
 
 " Folding
 set foldenable               " enable folding
