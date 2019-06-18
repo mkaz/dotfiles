@@ -5,7 +5,6 @@
 //
 // See: http://kb.mozillazine.org/User.js_file
 
-// Security/Privacy
 // disable RTC
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.use_document_iceservers", false);
@@ -29,3 +28,6 @@ user_pref("print.print_headerright", "");
 
 // improve YouTube Performance
 user_pref("layers.acceleration.force-enabled", true );
+
+// Disable web notifications
+user_pref("dom.webnotifications.enabled", false);
