@@ -79,3 +79,7 @@ GOPATH=/home/mkaz go get github.com/github/hub
 GOPATH=/home/mkaz go get github.com/mkaz/hastie
 GOPATH=/home/mkaz go get github.com/mkaz/wpsync
 
+# Enable Cron
+sudo systemctl enable cronie
+sudo systemctl start cronie
+
