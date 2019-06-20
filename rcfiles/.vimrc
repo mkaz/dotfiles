@@ -26,12 +26,12 @@ Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
 Plug 'fatih/vim-go'                   " golang support
 Plug 'itchyny/lightline.vim'          " fancy status line
-Plug 'joshdick/onedark.vim'           " fancy colors
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'               " fuzzy search
 Plug 'junegunn/goyo.vim'              " writing
 Plug 'junegunn/vim-slash'             " search highlighting
 Plug 'mattn/calendar-vim'             " calendar works with wiki
+Plug 'mhartington/oceanic-next'       " colors
 Plug 'rhysd/git-messenger.vim'        " inline git blame
 Plug 'reedes/vim-wordy'               " grammar check
 Plug 'sirver/ultisnips'               " snippets
@@ -51,7 +51,7 @@ syntax on
 if has( "termguicolors" )
     set termguicolors
 endif
-colorscheme onedark
+colorscheme OceanicNext
 
 " Whitespace stuff
 set expandtab
@@ -239,7 +239,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 " Lightline
 let g:lightline = {
-    \ 'colorscheme': 'onedark',
+    \ 'colorscheme': 'oceanicnext',
     \ 'active' : {
     \   'left' : [ [ 'mode', 'paste' ],
     \       [ 'readonly', 'filename', 'modified', ] ],
@@ -258,8 +258,8 @@ let g:lightline = {
 
 " Git Gutter
 set updatetime=250
-nmap ]c <Plug>GitGutterNextHunk
-nmap [c <Plug>GitGutterPrevHunk
+" nmap ]c <Plug>GitGutterNextHunk
+" nmap [c <Plug>GitGutterPrevHunk
 
 " Goyo
 noremap <F8> :Goyo<CR>
