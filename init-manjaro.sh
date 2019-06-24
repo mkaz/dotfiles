@@ -47,26 +47,8 @@ rm $HOME/.config/autostart/create-template.desktop
 sudo pacman -S --noconfirm nodejs go
 npm config set prefix "$HOME/.npm-global"
 
-# LAMP
-sudo pacman -S --noconfirm mariadb memcached apache
-sudo pacman -S --noconfirm php composer php-memcached php-intl php-apache php-imagick
-
-# Apache
-sudo systemctl enable httpd
-sudo systemctl start httpd
-
-# MariaDB
-sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-sudo systemctl enable mysqld
-sudo systemctl start mysqld
-
-# wp cli
-if [ ! -f "$HOME/bin/wp" ]; then
-    cd $HOME/Downloads
-    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-    chmod +x wp-cli.phar
-    mv wp-cli.phar $HOME/bin/wp
-fi
+# Docker Setup
+sudo pacman -S --noconfirm docker docker-compose
 
 # configure firewall
 sudo ufw allow ssh
