@@ -11,10 +11,11 @@
 
     # use to add files that your forgot
     ohyeah = commit --amend -C HEAD
-    hist = log --pretty=format:'%ad | %Cblue%h%Creset%C(auto) ⇒ %<(47,trunc)%s  ☺ %an' --graph --date=format:'%b %Y' --decorate
+    hist = log -n 25 --pretty=format:'%ad | %Cblue%h%Creset%C(auto) ⇒ %<(47,trunc)%s  ☺ %an' --graph --date=format:'%b %Y' --decorate
 
-  # list files which have changed
-  files = !git diff --name-only $(git merge-base HEAD master)
+    # list files which have changed
+    files = !git diff --name-only $(git merge-base HEAD master)
+    search = log -n 5 --oneline -S
 
 [merge]
     ff = only
