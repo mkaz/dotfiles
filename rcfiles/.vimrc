@@ -40,7 +40,6 @@ Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
 Plug 'tpope/vim-obsession'            " session control
 Plug 'tpope/vim-surround'             " surround motion
-Plug 'vimwiki/vimwiki'                " bees knees
 call plug#end()
 
 " Settings
@@ -123,7 +122,7 @@ nnoremap <Leader>, :Buffers<CR>
 noremap <Leader>f :Rg<space>
 
 " Gooey bits
-set guifont=Hack\ 16
+set guifont=Hack\ 14
 set guioptions-=T  "toolbar
 set guioptions-=r  "scrollbar
 " set guioptions-=m  "menu bar
@@ -268,18 +267,6 @@ let g:goyo_width = 70
 " Ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsUsePythonVersion = 3
-
-" Vim Wiki
-let g:vimwiki_list = [{'path': '~/Documents/Sync/vimwiki/', 'syntax': 'markdown'}]
-command! Diary VimwikiDiaryIndex
-augroup vimwikigroup
-    autocmd!
-    " set 6 space indent, aligns - [ ] task lists
-    autocmd FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
-
-    " automatically update links on read diary
-    " autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
-augroup end
 
 function! WordCount()
     let currentmode = mode()
