@@ -44,8 +44,10 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 rm $HOME/.config/autostart/create-template.desktop
 
 # Programming
-sudo pacman -S --noconfirm nodejs go
+sudo pacman -S --noconfirm nodejs npm go
+mkdir $HOME/.npm-global
 npm config set prefix "$HOME/.npm-global"
+npm install -g yarn node-sass
 
 # Docker Setup
 sudo pacman -S --noconfirm docker docker-compose
