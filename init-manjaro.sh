@@ -55,6 +55,8 @@ sudo pacman -S --noconfirm docker docker-compose
 # configure firewall
 sudo ufw allow ssh
 sudo ufw limit ssh
+sudo ufw allow syncthing
+sudo ufw allow syncthing-gui
 #sudo ufw allow 80
 sudo ufw enable
 
