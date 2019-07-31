@@ -32,7 +32,7 @@ stow rcfiles
 # | |_) | (_| \__ \ | (__\__ \
 # |_.__/ \__,_|___/_|\___|___/
 
-sudo apt-get -y install build-essential automake autoconf gnu-standards libtool gettext ctags curl wget pwgen net-tools dnsutils htop ufw pass autojump taskwarrior neofetch gnome-tweaks imagemagick pngcrush pandoc units figlet ruby-dev ripgrep fzf vim-nox autossh
+sudo apt-get -y install build-essential automake autoconf gnu-standards libtool gettext ctags curl wget pwgen net-tools dnsutils htop ufw pass autojump taskwarrior neofetch imagemagick pngcrush pandoc units figlet ruby-dev ripgrep fzf neovim autossh 
 
 #   ____ _   _ ___
 #  / ___| | | |_ _|
@@ -40,7 +40,7 @@ sudo apt-get -y install build-essential automake autoconf gnu-standards libtool 
 # | |_| | |_| || |
 #  \____|\___/|___|
 
-sudo apt-get -y install xclip gpick chrome-gnome-shell screenkey rapid-photo-downloader geeqie newsboat
+sudo apt-get -y install xclip gpick chrome-gnome-shell screenkey rapid-photo-downloader geeqie newsboat gconf2 gnome-shell-extensions gnoe-tweaks
 mkdir ~/.fonts
 cd ~/.fonts
 unzip $HOME/dotfiles/extras/fonts.zip
@@ -53,11 +53,12 @@ sudo apt-get -y install peek
 # syncthing
 if [ ! -f "$HOME/bin/syncthing" ]; then
     cd $HOME/Downloads
-    wget https://github.com/syncthing/syncthing/releases/download/v1.1.0/syncthing-linux-amd64-v0.14.51.tar.gz
-    tar xfz syncthing-linux-amd64-v1.1.0.tar.gz
-    cp syncthing-linux-amd64-v1.1.0/syncthing $HOME/bin/
-    mkdir -p $HOME/.config/autostart
-    cp $HOME/dotfiles/extras/autostart-syncthing.desktop $HOME/.config/autostart/syncthing.desktop
+    wget https://github.com/syncthing/syncthing/releases/download/v1.2.0/syncthing-linux-amd64-v1.2.0.tar.gz
+    tar xfz syncthing-linux-amd64-v1.2.0.tar.gz
+    sudo cp syncthing-linux-amd64-v1.2.0/syncthing /usr/bin/
+    sudo cp syncthing-linux-amd64-v1.2.0/etc/linux-systemd/system/syncthing@.service /etc/systemd/system
+    sudo systemctl enable syncthing@mkaz.service
+    sudo systemctl start syncthing@mkaz.service
     cd
 fi
 
@@ -73,7 +74,7 @@ sudo snap install slack --classic
 
 # Node
 cd $HOME/Downloads
-curl --silent --location https://deb.nodesource.com/setup_10.x | sudo -E bash -
+curl --silent --location https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get -y install nodejs
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
@@ -82,6 +83,19 @@ npm config set prefix '~/.npm-global'
 sudo apt-get -y install golang-go
 
 # LAMP
+#                    ()                   * )
+#                   <^^>             *     (   .
+#                  .-""-.                    )
+#       .---.    ."-....-"-._     _...---''`/. '
+#      ( (`\ \ .'            ``-''    _.-"'`
+#       \ \ \ : :.                 .-'
+#        `\`.\: `:.             _.'
+#        (  .'`.`            _.'
+#         ``    `-..______.-'
+#                   ):.  (
+#                 ."-....-".
+#               .':.        `.
+#               "-..______..-"
 sudo apt-get -y install mysql-client mysql-server memcached
 sudo apt-get -y install php php-cli php-common php-curl php-dev php-memcached php-mysql php-json php-mbstring php-intl php-xml
 sudo apt-get -y install apache2 libapache2-mod-php
@@ -106,7 +120,10 @@ sudo ufw enable
 GOPATH=/home/mkaz go get github.com/github/hub
 GOPATH=/home/mkaz go get github.com/jesseduffield/lazygit
 
-echo "Configure MySQL password. Run:"
-echo "mysql_config_editor set --login-path=local --host=localhost --user=username --password"
+# sublime text
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-get -y install apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get -y update
+sudo apt-get -y install sublime-text
 
-# vim: syntax=sh ts=4 sw=4 sts=4 sr et

@@ -14,8 +14,8 @@ export PROMPT_COMMAND="history -a"
 
 export HOSTNAME="`hostname`"
 export PAGER='less'
-export EDITOR='vim'
-export SVN_EDITOR='vim'
+export EDITOR='nvim'
+export SVN_EDITOR='nvim'
 
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -56,7 +56,6 @@ alias apt='sudo apt'
 alias ff='find . | grep'
 alias mtr='sudo mtr'
 alias o='xdg-open'
-alias pacman='sudo pacman'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias python='python3'
@@ -64,9 +63,10 @@ alias svnig='svn --ignore-externals'
 alias svnd='svn --config-option config:helpers:diff-cmd=colordiff diff'
 alias t='task'
 alias top='htop'
-alias vihosts='sudo vim /etc/hosts'
+alias vihosts='sudo nvim /etc/hosts'
 alias visudo='sudo visudo'
-alias vaconf='sudo vim /etc/httpd/conf/vhosts.conf'
+alias vaconf='nvim ~/sites/vhosts.conf'
+alias vim='nvim'
 
 # moving around
 alias cd..='cd ..'
@@ -113,3 +113,4 @@ if hash cowsay 2>/dev/null; then
     curl --silent https://icanhazdadjoke.com | cowsay
 fi
 
+unset command_not_found_handle
