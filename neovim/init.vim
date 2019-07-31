@@ -265,7 +265,7 @@ noremap <F8> :Goyo<CR>
 let g:goyo_width = 70
 
 " Ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 let g:UltiSnipsUsePythonVersion = 3
 
 function! WordCount()
