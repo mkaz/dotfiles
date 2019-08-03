@@ -40,7 +40,7 @@ sudo apt-get -y install build-essential automake autoconf gnu-standards libtool 
 # | |_| | |_| || |
 #  \____|\___/|___|
 
-sudo apt-get -y install xclip gpick chrome-gnome-shell screenkey rapid-photo-downloader geeqie newsboat gconf2 gnome-shell-extensions gnoe-tweaks
+sudo apt-get -y install xclip gpick chrome-gnome-shell gnome-shell-extensions screenkey rapid-photo-downloader geeqie newsboat gconf2 gnome-tweaks
 mkdir ~/.fonts
 cd ~/.fonts
 unzip $HOME/dotfiles/extras/fonts.zip
@@ -113,7 +113,7 @@ fi
 # configure firewall
 sudo ufw allow ssh
 sudo ufw limit ssh
-#sudo ufw allow 80
+#sudo ufw allow syncthing
 sudo ufw enable
 
 # install hub
