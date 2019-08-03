@@ -85,12 +85,12 @@ if [[ -e /usr/share/autojump/autojump.bash ]]; then
     source /usr/share/autojump/autojump.bash
 fi
 
-if [[ -e /usr/share/git/git-prompt.sh ]]; then
-    source /usr/share/git/git-prompt.sh
+if [[ -e /usr/share/bash-completion/completions/git ]]; then
+    source /usr/share/bash-completion/completions/git
 fi
 
-if [[ -e ~/dotfiles/extras/git-completion.bash ]]; then
-    source ~/dotfiles/extras/git-completion.bash
+if [[ -e /usr/share/bash-completion/completions/pass ]]; then
+    source /usr/share/bash-completion/completions/pass
 fi
 
 # dircolors
@@ -103,10 +103,6 @@ fi
 
 if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
     source ~/dotfiles/rcfiles/.fzf.bash
-fi
-
-if [[ -e ~/dotfiles/extras/pass.bash-completion ]]; then
-    source ~/dotfiles/extras/pass.bash-completion
 fi
 
 if hash cowsay 2>/dev/null; then
