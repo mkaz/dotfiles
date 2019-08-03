@@ -79,3 +79,49 @@ if which "$DCONF" > /dev/null 2>&1; then
     fi
 fi
 
+# Fallback for Gnome 2 and early Gnome 3
+[[ -z "$GCONFTOOL" ]] && GCONFTOOL=gconftool
+[[ -z "$BASE_KEY" ]] && BASE_KEY=/apps/gnome-terminal/profiles
+
+PROFILE_KEY="$BASE_KEY/$PROFILE_SLUG"
+
+gset() {
+    local type="$1"; shift
+    local key="$1"; shift
+    local val="$1"; shift
+
+    "$GCONFTOOL" --set --type "$type" "$PROFILE_KEY/$key" -- "$val"
+}
+
+# Because gconftool doesn't have "append"
+glist_append() {
+    local type="$1"; shift
+    local key="$1"; shift
+    local val="$1"; shift
+
+    local entries="$(
+        {
+            "$GCONFTOOL" --get "$key" | tr -d '[]' | tr , "\n" | fgrep -v "$val"
+            echo "$val"
+        } | head -c-1 | tr "\n" ,
+    )"
+
+    "$GCONFTOOL" --set --type list --list-type $type "$key" "[$entries]"
+}
+
+# Append profile to the profile list
+glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
+
+gset string visible_name "$PROFILE_NAME"
+gset string palette "#000000:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#abb2bf:#5c6370:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#ffffff"
+gset string background_color "#282c34"
+gset string foreground_color "#abb2bf"
+gset string bold_color "#abb2bf"
+gset bool   bold_color_same_as_fg "true"
+gset bool   use_theme_colors "false"
+gset bool   use_theme_background "false"
+
+unset PROFILE_NAME
+unset PROFILE_SLUG
+unset DCONF
+unset UUIDGEN
