@@ -15,7 +15,7 @@
 		"*.jar",
 		"*.zip"
 	],
-	"color_scheme": "Packages/Oceanic Next Color Scheme/Oceanic Next.tmTheme",
+	"color_scheme": "Packages/One Dark Color Scheme/One Dark.tmTheme",
 	"folder_exclude_patterns":
 	[
 		".svn",
@@ -26,9 +26,11 @@
 	],
 	"font_face": "Hack",
 	"font_size": 13,
+	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"remember_open_files": false,
 	"theme": "Default.sublime-theme"
 }
