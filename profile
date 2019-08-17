@@ -14,8 +14,8 @@ export PROMPT_COMMAND="history -a"
 
 export HOSTNAME="`hostname`"
 export PAGER='less'
-export EDITOR='nvim'
-export SVN_EDITOR='nvim'
+export EDITOR='vim'
+export SVN_EDITOR='vim'
 
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -49,7 +49,7 @@ alias xpsg='ps -aef | grep -i'
 
 # shortcuts
 apache() {
-    sudo systemctl $1 httpd
+    sudo systemctl $1 apache2
 }
 
 alias apt='sudo apt'
@@ -63,10 +63,10 @@ alias svnig='svn --ignore-externals'
 alias svnd='svn --config-option config:helpers:diff-cmd=colordiff diff'
 alias t='task'
 alias top='htop'
-alias vihosts='sudo nvim /etc/hosts'
+alias vihosts='sudo vim /etc/hosts'
 alias visudo='sudo visudo'
-alias vaconf='nvim ~/sites/vhosts.conf'
-alias vim='nvim'
+alias vaconf='vim ~/sites/vhosts.conf'
+alias vim='vim'
 
 # moving around
 alias cd..='cd ..'

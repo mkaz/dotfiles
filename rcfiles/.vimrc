@@ -21,7 +21,6 @@
 " See: https://github.com/junegunn/vim-plug
 
 call plug#begin('~/.config/plugged')
-Plug 'airblade/vim-gitgutter'         " git in the gutter
 Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
 Plug 'fatih/vim-go'                   " golang support
@@ -30,7 +29,6 @@ Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'               " fuzzy search
 Plug 'junegunn/goyo.vim'              " writing
 Plug 'junegunn/vim-slash'             " search highlighting
-Plug 'mattn/calendar-vim'             " calendar works with wiki
 Plug 'mhartington/oceanic-next'       " colors
 Plug 'rhysd/git-messenger.vim'        " inline git blame
 Plug 'reedes/vim-wordy'               " grammar check
@@ -39,6 +37,7 @@ Plug 'tommcdo/vim-lion'               " alignment motion
 Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
 Plug 'tpope/vim-obsession'            " session control
+Plug 'tpope/vim-sensible'             " default settings
 Plug 'tpope/vim-surround'             " surround motion
 call plug#end()
 
@@ -46,7 +45,6 @@ call plug#end()
 let mapleader=","
 
 " Colors
-syntax on
 if has( "termguicolors" )
     set termguicolors
 endif
@@ -65,13 +63,11 @@ set linebreak
 
 " hidden characters
 set listchars=tab:▸\ ,eol:¬
-set timeoutlen=1000 ttimeoutlen=0
 
 " Display
 set number            " show line numbers
 set hlsearch          " highlight search term
 set showcmd           " show command
-set laststatus=2      " statusline
 set noshowmode        " hide mode, its in status
 
 " Operation
@@ -93,7 +89,6 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " shhhh
 set novisualbell
-set nobackup
 set noerrorbells
 
 " Folding
@@ -154,8 +149,6 @@ augroup configgroup
 
     " Remember last location in file
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
-
-    autocmd filetype crontab setlocal nobackup nowritebackup
 
     " Default wrap markdown
     autocmd BufRead,BufNewFile *.md :Wrap
@@ -237,35 +230,14 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " Plugin Settings
 
 " Lightline
-let g:lightline = {
-    \ 'colorscheme': 'oceanicnext',
-    \ 'active' : {
-    \   'left' : [ [ 'mode', 'paste' ],
-    \       [ 'readonly', 'filename', 'modified', ] ],
-    \   'right' : [ [ 'lineinfo' ],
-    \               [ 'filetype' ],
-    \               [ 'wordcount' ],
-    \             ]
-    \ },
-    \ 'component': {
-    \   'buffernum': '%n'
-    \ },
-    \ 'component_function': {
-    \   'wordcount': 'WordCount'
-    \ },
-    \ }
-
-" Git Gutter
-set updatetime=250
-" nmap ]c <Plug>GitGutterNextHunk
-" nmap [c <Plug>GitGutterPrevHunk
+let g:lightline = { 'colorscheme': 'oceanicnext', 'active' : { 'left' : [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified', ] ], 'right' : [ [ 'lineinfo' ], [ 'filetype' ], [ 'wordcount' ], ] }, 'component': { 'buffernum': '%n' }, 'component_function': { 'wordcount': 'WordCount' }, }
 
 " Goyo
 noremap <F8> :Goyo<CR>
 let g:goyo_width = 70
 
 " Ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsUsePythonVersion = 3
 
 function! WordCount()
