@@ -31,3 +31,6 @@ user_pref("layers.acceleration.force-enabled", true );
 
 // Disable web notifications
 user_pref("dom.webnotifications.enabled", false);
+
+// disable scroll wheel zoom text
+user_pref("mousewheel.with_control.action", 0);
