@@ -13,5 +13,5 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --glob=!__pycache__/* --glob=!*.
 
 # Key bindings
 # ------------
-source "/home/mkaz/.fzf/shell/key-bindings.bash"
+# source "/home/mkaz/.fzf/shell/key-bindings.bash"
 
