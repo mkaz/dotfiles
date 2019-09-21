@@ -32,23 +32,25 @@ stow rcfiles
 # | |_) | (_| \__ \ | (__\__ \
 # |_.__/ \__,_|___/_|\___|___/
 
-sudo apt-get -y install build-essential automake autoconf gnu-standards libtool gettext ctags curl wget pwgen net-tools dnsutils htop ufw pass autojump neofetch imagemagick pngcrush pandoc units figlet ruby-dev ripgrep fzf autossh
+sudo apt-get -y install build-essential automake autoconf gnu-standards libtool gettext ctags
+sudo apt-get -y install curl wget pwgen net-tools dnsutils htop ufw pass autojump neofetch autossh
+sudo apt-get -y install imagemagick pngcrush pandoc gifsicle units figlet ruby-dev
+sudo apt-get -y install ripgrep fzf
 
-#   ____ _   _ ___
-#  / ___| | | |_ _|
-# | |  _| | | || |
-# | |_| | |_| || |
-#  \____|\___/|___|
+# gui: gnome stuff
+sudo apt-get -y install vim-gtk3 xclip gpick chrome-gnome-shell gnome-shell-extensions gconf2 gnome-tweaks
 
-sudo apt-get -y install xclip gpick chrome-gnome-shell gnome-shell-extensions screenkey rapid-photo-downloader geeqie newsboat gconf2 gnome-tweaks
+# click to dock icon to minimize
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+# gui: photo and video
+sudo apt-get -y install rapid-photo-downloader geeqie newsboat kazam vokoscreen screenkey
+
+# gui: fonts
 mkdir ~/.fonts
 cd ~/.fonts
 unzip $HOME/dotfiles/extras/fonts.zip
 cd
-
-# install Peek gif
-sudo add-apt-repository -y ppa:peek-developers/stable
-sudo apt-get -y install peek
 
 # syncthing
 if [ ! -f "$HOME/bin/syncthing" ]; then
@@ -62,8 +64,6 @@ if [ ! -f "$HOME/bin/syncthing" ]; then
     cd
 fi
 
-# click to dock icon to minimize
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 #  ___ _ __   __ _ _ __  ___
 # / __| '_ \ / _` | '_ \/ __|
@@ -126,7 +126,6 @@ sudo ufw enable
 
 # install hub
 GOPATH=/home/mkaz go get github.com/github/hub
-GOPATH=/home/mkaz go get github.com/jesseduffield/lazygit
 
 # git-revise
 sudo apt-get -y install python3-pip
