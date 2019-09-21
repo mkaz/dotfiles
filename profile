@@ -35,6 +35,7 @@ PATH=".:$HOME/bin:$HOME/.npm-global/bin:$HOME/.local/bin:/usr/local/bin:/usr/loc
 alias aspell='aspell --dont-backup'
 alias curl='curl --silent'
 alias df='df -h -x tmpfs'
+alias ffmpeg='ffmpeg -hide_banner'
 alias git='hub'
 alias grep='grep -i'
 alias less='less -r'
