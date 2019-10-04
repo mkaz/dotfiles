@@ -50,10 +50,10 @@ alias xpsg='ps -aef | grep -i'
 
 # shortcuts
 apache() {
-    sudo systemctl $1 apache2
+    sudo systemctl $1 httpd
 }
 
-alias apt='sudo apt'
+alias pacman='sudo pacman'
 alias ff='find . | grep'
 alias mtr='sudo mtr'
 alias o='xdg-open'
@@ -86,8 +86,8 @@ if [[ -e /usr/share/autojump/autojump.bash ]]; then
     source /usr/share/autojump/autojump.bash
 fi
 
-if [[ -e /usr/share/bash-completion/completions/git ]]; then
-    source /usr/share/bash-completion/completions/git
+if [[ -e /usr/share/git/completion/git-prompt.sh ]]; then
+    source /usr/share/git/completion/git-prompt.sh
 fi
 
 if [[ -e /usr/share/bash-completion/completions/pass ]]; then

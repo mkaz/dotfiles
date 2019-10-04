@@ -1,37 +1,22 @@
-# [Created by task 2.3.0 9/7/2015 20:08:36]
 # Taskwarrior program configuration file.
-# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
-# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
-
-# Here is an example of entries that use the default, override and blank values
-#   variable=foo   -- By specifying a value, this overrides the default
-#   variable=      -- By specifying no value, this means no default
-#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
-
-# Use the command 'task show' to see all defaults and overrides
+# For more documentation, see http://taskwarrior.org
 
 # Files
 data.location=~/Documents/Sync/tasks
 
-# Color theme (uncomment one to use)
-#include /usr/share/taskwarrior/light-16.theme
-#include /usr/share/taskwarrior/light-256.theme
-#include /usr/share/taskwarrior/dark-16.theme
-#include /usr/share/taskwarrior/dark-256.theme
-#include /usr/share/taskwarrior/dark-red-256.theme
-#include /usr/share/taskwarrior/dark-green-256.theme
-#include /usr/share/taskwarrior/dark-blue-256.theme
-#include /usr/share/taskwarrior/dark-violets-256.theme
-#include /usr/share/taskwarrior/dark-yellow-green.theme
-#include /usr/share/taskwarrior/dark-gray-256.theme
+# Color theme
+include /usr/share/taskwarrior/dark-256.theme
 
 report.completed.columns=end,project,priority,entry.age,description,tags
 report.completed.labels=Complete,Proj,Pri,Age,Description,Tags
+
+# yesterday
 report.ayer.description=Last day of activity
 report.ayer.columns=id,project,due,scheduled,status,description
 report.ayer.sort=status+\/,project+,entry+
 report.ayer.filter=entry:yesterday or end.after:yesterday
 
+# lastweek
 report.lastweek.description=Completed Last Week
 report.lastweek.columns=project,modified,status,description
 report.lastweek.sort=project+,status+\/,entry+
