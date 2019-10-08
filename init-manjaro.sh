@@ -57,8 +57,8 @@ fi
 # Software installs
 sudo yay -S slack-desktop
 
-# Node
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+# Node 
+sudo pacman -S --needed nodejs yarn
 
 # Golang
 sudo pacman -S --noconfirm go
