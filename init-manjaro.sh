@@ -36,7 +36,7 @@ sudo pacman -S --needed --noconfirm imagemagick pngcrush pandoc gifsicle figlet
 sudo pacman -S --needed --noconfirm ripgrep fzf newsboat
 
 # gui: photo and video
-sudo pacman -S --needed --noconfirm rapid-photo-downloader geeqie peek gpick
+sudo pacman -S --needed --noconfirm rapid-photo-downloader geeqie peek gpick noto-fonts-emoji
 
 # gui: fonts
 mkdir ~/.fonts
