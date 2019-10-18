@@ -1,0 +1,30 @@
+{    
+    "breadcrumbs.enabled": false,
+    "editor.fontFamily": "Hack, 'Droid Sans Mono', monospace",
+    "editor.folding": false,
+    "editor.fontSize": 16,
+    "editor.formatOnSave": false,
+    "editor.minimap.enabled": false,
+    "files.hotExit": "off",
+    "window.restoreWindows": "none",
+    "window.zoomLevel": 0.5,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Oceanic Next",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#09141B",
+        "editor.background": "#09141B",
+        "editorGroupHeader.tabsBackground": "#0d1d27",
+        "input.background": "#09141B",
+        "sideBar.background": "#0d1d27",        
+        "tab.activeBackground": "#09141B",
+        "tab.border": "#20465d",
+        "tab.inactiveBackground": "#0d1d27",
+        "tab.unfocusedInactiveBackground": "#0d1d27"
+    },
+    "workbench.settings.editor": "json",
+
+    "go.formatTool": "goimports",
+    "eslint.autoFixOnSave": true
+}
