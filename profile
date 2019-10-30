@@ -22,7 +22,7 @@ export GOPATH="$HOME"
 
 # Use user dir for npm global
 NPM_CONFIG_PREFIX=$HOME/.npm-global
-PATH=".:$HOME/bin:$HOME/.npm-global/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH"
+PATH=".:$HOME/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:$PATH"
 
 # default command options
 alias aspell='aspell --dont-backup'
