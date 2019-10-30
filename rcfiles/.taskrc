@@ -5,7 +5,7 @@
 data.location=~/Documents/Sync/tasks
 
 # Color theme
-include /usr/share/taskwarrior/dark-256.theme
+#include /usr/share/taskwarrior/dark-256.theme
 
 report.completed.columns=end,project,priority,entry.age,description,tags
 report.completed.labels=Complete,Proj,Pri,Age,Description,Tags
