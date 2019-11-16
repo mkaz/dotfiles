@@ -24,12 +24,12 @@ stow rcfiles
 sudo apt install -y git sudo zip curl wget ufw vim-nox
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf newsboat figlet
+sudo apt install -y ripgrep fzf newsboat figlet taskwarrior
 
 # gui: photo and video
 read -p "Install Photo & Video? (N/y) " media
 if [ "$media" != "${media#[Yy]}" ]; then
-    sudo apt install -y imagemagick pngcrush pandoc gifsicle
+    sudo apt install -y imagemagick pngcrush pandoc gifsicle obs-studio
     sudo apt install -y rapid-photo-downloader geeqie peek gpick fonts-noto-color-emoji
 fi
 
@@ -105,6 +105,18 @@ GOPATH=/home/mkaz go get github.com/github/hub
 # git-revise
 sudo apt-get -y install python3-pip
 python3 -m pip install --user git-revise
+
+
+# taskwarrior-web
+read -p "Install Sublime Text? (Y/n) " twweb
+if [ "$twweb" != "${twweb#[Nn]}" ]; then
+	echo "✖ Skipping TaskWarrior Web"
+else
+	echo "✔ Installing TaskWarrrior Web"
+    sudo apt install -y ruby-dev
+    sudo gem install taskwarrior-web
+fi
+
 
 # Software installs
 
