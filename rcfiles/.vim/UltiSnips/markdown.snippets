@@ -3,3 +3,11 @@ snippet asciinema
 <figure><asciinema-player src="$1" font-size="large" cols="58" rows="15"></asciinema-player><figcaption>$2</figcaption></figure>
 endsnippet
 
+snippet lorem-jsx
+// JSX code in Syntax Highlight block
+const foo = ( { attributes, className } ) => (
+    <div className={ className }>
+        { attributes.bar }
+    </div>
+);
+endsnippet

@@ -22,7 +22,7 @@ export GOPATH="$HOME"
 
 # Use user dir for npm global
 NPM_CONFIG_PREFIX=$HOME/.npm-global
-PATH=".:$HOME/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:$PATH"
+PATH=".:$HOME/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH"
 
 # default command options
 alias aspell='aspell --dont-backup'
@@ -43,10 +43,11 @@ alias xpsg='ps -aef | grep -i'
 
 # shortcuts
 apache() {
-    sudo systemctl $1 httpd
+    sudo systemctl $1 apache2
 }
+alias tailoge='tail -f /var/log/httpd/error_log'
 
-alias pacman='sudo pacman'
+alias apt='sudo apt'
 alias ff='find . | grep'
 alias mtr='sudo mtr'
 alias o='xdg-open'
@@ -79,8 +80,9 @@ if [[ -e /usr/share/autojump/autojump.bash ]]; then
     source /usr/share/autojump/autojump.bash
 fi
 
-if [[ -e /usr/share/git/completion/git-prompt.sh ]]; then
-    source /usr/share/git/completion/git-prompt.sh
+if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
+    source /usr/lib/git-core/git-sh-prompt
+
 fi
 
 if [[ -e /usr/share/bash-completion/completions/pass ]]; then
