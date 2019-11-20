@@ -92,6 +92,12 @@ sudo ufw allow 22000        # syncthing
 sudo ufw allow 21027/udp    # syncthing
 sudo ufw enable
 
+# disable printer auto discovery
+# easier to configure and setup manually
+sudo systemctl stop cups-browsed
+sudo systemctl disable cups-browsed
+
+
 #        _ _
 #   __ _(_) |_
 #  / _` | | __|
