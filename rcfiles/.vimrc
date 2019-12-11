@@ -51,7 +51,7 @@ endif
 colorscheme OceanicNext
 
 " Whitespace stuff
-set expandtab
+set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
