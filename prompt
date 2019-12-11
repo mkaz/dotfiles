@@ -4,7 +4,7 @@
 source ~/dotfiles/extras/colors
 
 function set_prompt {
-    local __time="\[$Cyan\]\@"
+    local __char="🎄"
 
     if [ -n "$SSH_CLIENT" ]; then
         __host="\[$Red\] [`hostname`]"
@@ -17,7 +17,7 @@ function set_prompt {
     local __prompt="\[$Red\]>"
     local __off="\[$Color_Off\]"
 
-    export PS1="$__time$__host$__git $__dir\n$__prompt $__off"
+    export PS1="$__char$__host$__git $__dir\n$__prompt $__off"
 }
 set_prompt
 
