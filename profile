@@ -28,7 +28,6 @@ alias aspell='aspell --dont-backup'
 alias curl='curl --silent'
 alias df='df -h -x tmpfs'
 alias ffmpeg='ffmpeg -hide_banner'
-alias git='hub'
 alias grep='grep -i'
 alias less='less -r'
 alias ls='ls -h -N --group-directories-first --color'
@@ -44,7 +43,7 @@ alias xpsg='ps -aef | grep -i'
 apache() {
     sudo systemctl $1 apache2
 }
-alias tailoge='tail -f /var/log/httpd/error_log'
+alias tailoge='sudo tail -f /var/log/apache2/error.log'
 
 alias apt='sudo apt'
 alias ff='find . | grep'
