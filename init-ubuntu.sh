@@ -20,10 +20,11 @@ sudo apt update && apt upgrade
 ## use stow to configure rcfiles
 cd ~/dotfiles/
 
-sudo apt install -y git sudo zip curl wget ufw vim-nox
+sudo apt install -y git subversion sudo zip curl wget ufw vim-nox
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf newsboat figlet gnome-tweaks
+sudo apt install -y ripgrep fzf jq newsboat figlet gnome-tweaks gnome-shell-pomodoro
+
 
 # works better after its installed
 stow rcfiles
@@ -134,7 +135,9 @@ fi
 sudo snap install --classic code
 
 # Slack
-sudo snap install --classic slack
+## Trying browser version becuase
+## Snap app opens links in new FF session
+## sudo snap install --classic slack
 
 # Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
