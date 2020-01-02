@@ -15,6 +15,7 @@
     "editor.quickSuggestionsDelay": 1000,
     "editor.renderWhitespace": "selection",
     "files.hotExit": "off",
+    "html.autoClosingTags": false,
     "window.restoreWindows": "none",
     "window.zoomLevel": 1,
     "workbench.editor.enablePreview": false,
@@ -37,8 +38,11 @@
     "workbench.iconTheme": null,
     // Extension specific
     "go.formatTool": "goimports",
-    "eslint.autoFixOnSave": true,
     // Filetype Specific Settings
+    // "[javascript]": {
+    //     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    //     "editor.formatOnSave": true
+    // },
     "[markdown]": {
         "editor.fontFamily": "Hack, \"Droid Sans Mono\", monospace",
         "editor.fontLigatures": true,
@@ -51,5 +55,10 @@
     },
     "explorer.confirmDragAndDrop": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "javascript.autoClosingTags": false,
+    "typescript.autoClosingTags": false,
 
 }
