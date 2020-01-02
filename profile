@@ -18,7 +18,7 @@ export EDITOR='vim'
 export SVN_EDITOR='vim'
 
 # Go
-export GOPATH="$HOME"
+export GOPATH="$HOME/.golang"
 
 # Use user dir for npm global
 PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH"
@@ -80,8 +80,12 @@ fi
 
 if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
     source /usr/lib/git-core/git-sh-prompt
-
 fi
+
+if [[ -e /usr/share/bash-completion/completions/git ]]; then
+    source /usr/share/bash-completion/completions/git
+fi
+
 
 if [[ -e /usr/share/bash-completion/completions/pass ]]; then
     source /usr/share/bash-completion/completions/pass
