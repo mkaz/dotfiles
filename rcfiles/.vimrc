@@ -48,6 +48,7 @@ let mapleader=","
 if has( "termguicolors" )
     set termguicolors
 endif
+set background=dark
 colorscheme OceanicNext
 
 " Whitespace stuff
@@ -77,8 +78,8 @@ set nobackup
 
 " Disabled for Security
 " See: https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
-" set nomodeline          " use modeline override
-" set modelines=2       " check last two lines
+set modeline          " use modeline override
+set modelines=2       " check last two lines
 set mouse=a           " enable mouse support
 
 " move updown by visual (wrapped) lines
@@ -152,7 +153,10 @@ augroup configgroup
 
     " Default wrap markdown
     autocmd BufRead,BufNewFile *.md :Wrap
- 
+
+	" Remove trailing space on write
+	autocmd BufWritePre * %s/\s\+$//e
+
 augroup END
 
 " Key Bindings
