@@ -50,7 +50,7 @@
         "editor.lineHeight": 26,
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 72,
-        "editor.lineNumbers": "off",
+        "editor.lineNumbers": "on",
         "editor.quickSuggestions": false,
     },
     "explorer.confirmDragAndDrop": false,
