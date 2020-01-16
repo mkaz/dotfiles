@@ -23,7 +23,7 @@ cd ~/dotfiles/
 sudo apt install -y git subversion sudo zip curl wget ufw vim-nox
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf jq newsboat figlet gnome-tweaks gnome-shell-pomodoro
+sudo apt install -y ripgrep fzf jq newsboat figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary
 
 
 # works better after its installed
