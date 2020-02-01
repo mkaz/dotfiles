@@ -21,6 +21,7 @@
 " See: https://github.com/junegunn/vim-plug
 
 call plug#begin('~/.config/plugged')
+Plug 'airblade/vim-gitgutter'		  " git gutter
 Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
 Plug 'fatih/vim-go'                   " golang support
@@ -174,6 +175,7 @@ noremap <Leader><Space> :nohlsearch<CR>
 " Toggle comments using vim-commentary
 map <Leader>/ gcc
 
+
 " Buffer Navigation
 nnoremap <Leader>n :enew<CR>  " new buffer
 nnoremap <Tab> :bnext<CR>     " next buffer
@@ -230,6 +232,9 @@ noremap <Leader>h :terminal hastie<CR>
 
 " :Wrap command
 command! -nargs=* Wrap set wrap linebreak nolist
+
+command! Vmake silent w | silent make | unsilent redraw! | cwindow
+nnoremap <Leader>m :Vmake<CR>
 
 " Plugin Settings
 
