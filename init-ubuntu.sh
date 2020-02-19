@@ -139,3 +139,7 @@ sudo snap install --classic code
 ## Snap app opens links in new FF session
 ## sudo snap install --classic slack
 
+# espanso
+wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
+sudo apt install -y ./espanso-debian-amd64.deb
+mv espanso-debian-amd64.deb ~/Downloads/
