@@ -139,6 +139,3 @@ sudo snap install --classic code
 ## Snap app opens links in new FF session
 ## sudo snap install --classic slack
 
-# Joplin
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
-
