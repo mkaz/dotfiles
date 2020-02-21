@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'               " fuzzy search
 Plug 'junegunn/goyo.vim'              " writing
 Plug 'junegunn/vim-slash'             " search highlighting
 Plug 'mhartington/oceanic-next'       " colors
+Plug 'prettier/vim-prettier'
 Plug 'rhysd/git-messenger.vim'        " inline git blame
 Plug 'reedes/vim-wordy'               " grammar check
 Plug 'sirver/ultisnips'               " snippets
@@ -245,6 +246,9 @@ let g:lightline = { 'colorscheme': 'oceanicnext', 'active' : { 'left' : [ [ 'mod
 noremap <F8> :Goyo<CR>
 let g:goyo_width = 70
 
+" Markdown
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'php', 'python' ]
+
 " Ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsUsePythonVersion = 3
@@ -278,3 +282,11 @@ function! WordCount()
         return b:wordcount . ' words'
     endif
 endfunction
+
+" source .vimlocal if exists
+let git_path = system("git rev-parse --show-toplevel 2>/dev/null")
+let vimlocal = substitute(git_path, '\n', '', '') . "/.vimlocal"
+if !empty(glob(vimlocal))
+    exec ":source " . vimlocal
+endif
+
