@@ -17,6 +17,9 @@ export PAGER='less'
 export EDITOR='vim'
 export SVN_EDITOR='vim'
 
+# fix gpg
+export GPG_TTY=$(tty)
+
 # Go
 export GOPATH="$HOME/.golang"
 
@@ -103,8 +106,8 @@ if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
     source ~/dotfiles/rcfiles/.fzf.bash
 fi
 
-if hash cowsay 2>/dev/null; then
-    curl --silent https://icanhazdadjoke.com | cowsay
+if [[ -e ~/.nvm/nvm.sh ]]; then
+    source ~/.nvm/nvm.sh
 fi
 
 unset command_not_found_handle
