@@ -13,7 +13,7 @@ mkdir ~/src/
 mkdir ~/tmp/
 
 ## update & upgrade
-sudo apt update && apt upgrade
+sudo apt update && sudo apt upgrade
 
 ## use stow to configure rcfiles
 cd ~/dotfiles/
@@ -21,7 +21,7 @@ cd ~/dotfiles/
 sudo apt install -y git sudo zip curl wget vim-nox
 sudo apt install -y build-essential stow pwgen htop autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf newsboat figlet 
+sudo apt install -y ripgrep fzf newsboat figlet
 
 # connect configs
 stow rcfiles
