@@ -24,7 +24,7 @@ export GPG_TTY=$(tty)
 export GOPATH="$HOME/.golang"
 
 # Use user dir for npm global
-PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH"
+PATH=".:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH"
 
 # default command options
 alias aspell='aspell --dont-backup'
@@ -57,7 +57,6 @@ alias pbpaste='xclip -selection clipboard -o'
 alias python='python3'
 alias svnig='svn --ignore-externals'
 alias svnd='svn --config-option config:helpers:diff-cmd=colordiff diff'
-alias t='task'
 alias top='htop'
 alias vihosts='sudo vim /etc/hosts'
 alias visudo='sudo visudo'
