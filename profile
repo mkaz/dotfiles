@@ -110,4 +110,8 @@ if [[ -e ~/.nvm/nvm.sh ]]; then
     source ~/.nvm/nvm.sh
 fi
 
+if [[ -e ~/dotfiles/zk.sh ]]; then
+    source ~/dotfiles/zk.sh
+fi
+
 unset command_not_found_handle
