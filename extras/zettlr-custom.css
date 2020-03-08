@@ -1,0 +1,41 @@
+/* Enter your custom CSS here */
+:root {
+  --bg-preview: #FFFFFF;
+  --bg-directories: #F0F0FF;
+  --grey-4: #333333;
+  --grey-3: #333333;
+  --grey-2: #FFFFFF;
+  --grey-1: #F0F0F0;
+}
+body,
+body.linux {
+  font-family: "Droid Sans";
+}
+
+#editor * {
+	font-family: 'Hack';
+  	font-size: 15px;
+}
+
+#file-list {
+  box-shadow: none !important;
+  border-right: 1px solid #777;
+}
+
+#file-list div.list-item.selected {
+  background-color: #FFD800 !important;
+}
+
+#editor .cm-header-1,
+#editor .cm-header-2,
+#editor .cm-header-3,
+#editor .cm-header-4,
+#editor .cm-header-5,
+#editor .cm-header-6,
+#editor .cm-formatting-header{
+  color: var(--c-primary);
+  font-family: 'Noto Sans';
+  font-weight:600;
+  font-size:1.25em;
+}
+
