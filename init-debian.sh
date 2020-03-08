@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install script for setting up my Manjaro linux
+# Install script for setting up my Debian server
 
 UNAME=`uname`
 cd $HOME
@@ -48,6 +48,5 @@ fi
 # configure firewall
 sudo ufw allow ssh
 sudo ufw limit ssh
-sudo ufw allow 22000        # syncthing
-sudo ufw allow 21027/udp    # syncthing
+sudo ufw allow 80
 sudo ufw enable
