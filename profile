@@ -96,11 +96,6 @@ fi
 # dircolors
 eval $(dircolors /home/mkaz/dotfiles/extras/dircolors)
 
-# run host specific profile
-if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
-    source ~/dotfiles/profile.$HOSTNAME
-fi
-
 if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
     source ~/dotfiles/rcfiles/.fzf.bash
 fi
@@ -114,3 +109,9 @@ if [[ -e ~/dotfiles/zk.sh ]]; then
 fi
 
 unset command_not_found_handle
+
+# run host specific profile
+if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
+    source ~/dotfiles/profile.$HOSTNAME
+fi
+
