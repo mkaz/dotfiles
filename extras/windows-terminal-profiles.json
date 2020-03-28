@@ -1,0 +1,76 @@
+
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "profiles":
+    {
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles
+            "cursorShape": "filledBox",
+            "colorScheme" : "Gruvbox Dark",
+            "fontFace" : "Hack",
+            "fontSize" : 13
+        },
+        "list":
+        [
+            {
+                // Make changes here to the powershell.exe profile
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe",
+                "hidden": false
+            },
+            {
+                // Make changes here to the cmd.exe profile
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "cmd",
+                "commandline": "cmd.exe",
+                "hidden": false
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            }
+        ]
+    },
+
+    // Add custom color schemes to this array
+    "schemes": [
+      {
+        "name": "Gruvbox Dark",
+        "black": "#1e1e1e",
+        "red": "#FE3F37",
+        "green": "#868715",
+        "yellow": "#cc881a",
+        "blue": "#377375",
+        "purple": "#a04b73",
+        "cyan": "#578e57",
+        "white": "#978771",
+        "brightBlack": "#7f7061",
+        "brightRed": "#f73028",
+        "brightGreen": "#aab01e",
+        "brightYellow": "#f7b125",
+        "brightBlue": "#719586",
+        "brightPurple": "#c77089",
+        "brightCyan": "#7db669",
+        "brightWhite": "#e6d4a3",
+        "background": "#1e1e1e",
+        "foreground": "#e6d4a3"
+      }
+    ],
+
+    // Add any keybinding overrides to this array.
+    // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": [
+        {"keys": ["ctrl+|"], "command": {"action": "splitPane", "split": "vertical"}},
+        {"keys": ["ctrl+\\"], "command": {"action": "splitPane", "split": "horizontal"}}
+    ]
+}
