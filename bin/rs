@@ -1,0 +1,14 @@
+#!/bin/bash
+
+name=$(basename $1 .rs)
+rustc $@ 
+
+
+if [ -f "./$name.exe" ]; then
+	# run
+	./$name.exe
+
+	# cleanup
+	rm $name.exe $name.pdb
+fi
+
