@@ -4,8 +4,13 @@
 
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
+    "defaultProfile": "{1dd3c2c6-e7ba-458c-8964-0a7864f8d2da}",
 
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "globals": {
+        "initialRows": 40,
+        "initialCols": 100,
+        "padding": 8
+    },
 
     "profiles":
     {
@@ -20,10 +25,18 @@
         "list":
         [
             {
+                // Make changes here to the cmd.exe profile
+                "guid": "{1dd3c2c6-e7ba-458c-8964-0a7864f8d2da}",
+                "name": "Bash",
+                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
+                "hidden": false
+            },
+            {
                 // Make changes here to the powershell.exe profile
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
                 "commandline": "powershell.exe",
+                "colorScheme": "Tomorrow Night Blue",
                 "hidden": false
             },
             {
@@ -64,7 +77,44 @@
         "brightWhite": "#e6d4a3",
         "background": "#1e1e1e",
         "foreground": "#e6d4a3"
-      }
+      },
+      {
+        "name": "Flat",
+        "black": "#222d3f",
+        "red": "#a82320",
+        "green": "#32a548",
+        "yellow": "#e58d11",
+        "purple": "#781aa0",
+        "cyan": "#2c9370",
+        "white": "#b0b6ba",
+        "brightBlack": "#212c3c",
+        "brightRed": "#d4312e",
+        "brightGreen": "#2d9440",
+        "brightYellow": "#e5be0c",
+        "brightBlue": "#3c7dd2",
+        "brightPurple": "#8230a7",
+        "brightCyan": "#35b387",
+        "brightWhite": "#e7eced",
+        "background": "#002240",
+        "foreground": "#2cc55d"
+    },
+    {
+        "name": "Tomorrow Night Blue",
+        "black": "#000000",
+        "red": "#ff9da4",
+        "green": "#d1f1a9",
+        "purple": "#ebbbff",
+        "cyan": "#99ffff",
+        "white": "#ffffff",
+        "brightBlack": "#000000",
+        "brightRed": "#ff9da4",
+        "brightYellow": "#ffeead",
+        "brightPurple": "#ebbbff",
+        "brightCyan": "#99ffff",
+        "brightWhite": "#ffffff",
+        "background": "#002451",
+        "foreground": "#ffffff"
+    }
     ],
 
     // Add any keybinding overrides to this array.
