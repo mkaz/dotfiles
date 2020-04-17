@@ -4,7 +4,7 @@
 
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{1dd3c2c6-e7ba-458c-8964-0a7864f8d2da}",
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
 
     "globals": {
         "initialRows": 40,
@@ -36,7 +36,7 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
                 "commandline": "powershell.exe",
-                "colorScheme": "Tomorrow Night Blue",
+                "colorScheme": "Dracula",
                 "hidden": false
             },
             {
@@ -99,21 +99,25 @@
         "foreground": "#2cc55d"
     },
     {
-        "name": "Tomorrow Night Blue",
-        "black": "#000000",
-        "red": "#ff9da4",
-        "green": "#d1f1a9",
-        "purple": "#ebbbff",
-        "cyan": "#99ffff",
-        "white": "#ffffff",
-        "brightBlack": "#000000",
-        "brightRed": "#ff9da4",
-        "brightYellow": "#ffeead",
-        "brightPurple": "#ebbbff",
-        "brightCyan": "#99ffff",
-        "brightWhite": "#ffffff",
-        "background": "#002451",
-        "foreground": "#ffffff"
+        "name" : "Dracula",
+        "background" : "#272935",
+        "black" : "#272935",
+        "blue" : "#BD93F9",
+        "brightBlack" : "#555555",
+        "brightBlue" : "#BD93F9",
+        "brightCyan" : "#8BE9FD",
+        "brightGreen" : "#50FA7B",
+        "brightPurple" : "#FF79C6",
+        "brightRed" : "#FF5555",
+        "brightWhite" : "#FFFFFF",
+        "brightYellow" : "#F1FA8C",
+        "cyan" : "#6272A4",
+        "foreground" : "#F8F8F2",
+        "green" : "#50FA7B",
+        "purple" : "#6272A4",
+        "red" : "#FF5555",
+        "white" : "#F8F8F2",
+        "yellow" : "#FFB86C"
     }
     ],
 
