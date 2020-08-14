@@ -26,6 +26,7 @@
 [user]
 	name = Marcus Kazmierczak
 	email = marcus@mkaz.com
+	signingkey = 82C4BC5F
 
 [github]
     user = mkaz
@@ -35,3 +36,7 @@
 
 [init]
 	defaultBranch = trunk
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
