@@ -115,3 +115,7 @@ if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
+# home james
+cd
+
+export PATH="$HOME/.cargo/bin:$PATH"
