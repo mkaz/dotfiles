@@ -26,8 +26,13 @@ sudo apt install -y ripgrep fzf newsboat figlet
 # connect configs
 stow rcfiles
 
-# Golang
-sudo apt install -y golang
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+
+# Node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nvm install --lts
+
 
 # LAMP
 read -p "Install LAMP Stack? (Y/n) " lamp
