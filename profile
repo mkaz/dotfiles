@@ -20,11 +20,9 @@ export SVN_EDITOR='vim'
 # fix gpg
 export GPG_TTY=$(tty)
 
-# Go
-export GOPATH="$HOME/.golang"
-
-# Use user dir for npm global
-PATH=".:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH"
+# Build PATH
+PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
 
 # default command options
 alias aspell='aspell --dont-backup'
@@ -61,7 +59,6 @@ alias top='htop'
 alias vihosts='sudo vim /etc/hosts'
 alias visudo='sudo visudo'
 alias vaconf='vim ~/sites/vhosts.conf'
-alias vim='vim'
 
 # moving around
 alias cd..='cd ..'
@@ -88,7 +85,6 @@ if [[ -e /usr/share/bash-completion/completions/git ]]; then
     source /usr/share/bash-completion/completions/git
 fi
 
-
 if [[ -e /usr/share/bash-completion/completions/pass ]]; then
     source /usr/share/bash-completion/completions/pass
 fi
@@ -104,10 +100,6 @@ if [[ -e ~/.nvm/nvm.sh ]]; then
     source ~/.nvm/nvm.sh
 fi
 
-if [[ -e ~/dotfiles/zk.sh ]]; then
-    source ~/dotfiles/zk.sh
-fi
-
 unset command_not_found_handle
 
 # run host specific profile
@@ -115,7 +107,3 @@ if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
-# home james
-cd
-
-export PATH="$HOME/.cargo/bin:$PATH"
