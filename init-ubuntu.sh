@@ -15,7 +15,7 @@ mkdir ~/tmp/
 mkdir ~/Downloads/
 
 ## update & upgrade
-sudo apt update && apt upgrade
+sudo apt update && sudo apt upgrade -y
 
 ## use stow to configure rcfiles
 cd ~/dotfiles/
@@ -51,9 +51,9 @@ if [ "$syncthing" != "${syncthing#[Yy]}" ]; then
 	echo "✔ Installing Syncthing"
     if [ ! -f "$HOME/bin/syncthing" ]; then
         cd $HOME/Downloads
-        wget https://github.com/syncthing/syncthing/releases/download/v1.2.0/syncthing-linux-amd64-v1.2.0.tar.gz
+        wget https://github.com/syncthing/syncthing/releases/download/v1.8.0/syncthing-linux-amd64-v1.8.0.tar.gz
         tar xfz syncthing-linux-amd64-v1.2.0.tar.gz
-        cp syncthing-linux-amd64-v1.2.0/syncthing $HOME/bin/
+        cp syncthing-linux-amd64-v1.8.0/syncthing $HOME/bin/
         #TODO: add to GNOME startup items
         cd
     fi
@@ -64,8 +64,8 @@ fi
 # Install Node via nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
-# Golang
-sudo apt install -y golang
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
 # LAMP (use Local?)
 read -p "Install LAMP Stack? (Y/n) " lamp
@@ -78,7 +78,6 @@ else
     sudo apt install -y php libapache2-mod-php php-cli php-curl php-gd php-imagick php-intl php-mbstring php-mysql php-xml
     sudo a2enmod rewrite expires vhost_alias ssl headers
 fi
-
 
 # wp cli
 if [ ! -f "$HOME/bin/wp" ]; then
@@ -101,22 +100,6 @@ sudo ufw enable
 sudo systemctl stop cups-browsed
 sudo systemctl disable cups-browsed
 
-
-#        _ _
-#   __ _(_) |_
-#  / _` | | __|
-# | (_| | | |_
-#  \__, |_|\__|
-#  |___/
-
-# install hub
-GOPATH=/home/mkaz go get github.com/github/hub
-
-# git-revise
-sudo apt-get -y install python3-pip
-python3 -m pip install --user git-revise
-
-
 # Software installs
 
 # sublime text
@@ -130,14 +113,6 @@ else
 	apt update
 	apt install -y sublime-text
 fi
-
-# Visual Studio Code
-sudo snap install --classic code
-
-# Slack
-## Trying browser version becuase
-## Snap app opens links in new FF session
-## sudo snap install --classic slack
 
 # espanso
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
