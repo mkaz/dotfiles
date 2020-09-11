@@ -4,7 +4,7 @@
 source ~/dotfiles/extras/colors
 
 function set_prompt {
-    local __char="🌻"
+    local __char="☀️ "
 
     if [ -n "$SSH_CLIENT" ]; then
         __host="\[$Red\] [`hostname`]"
