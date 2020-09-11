@@ -14,8 +14,8 @@ export PROMPT_COMMAND="history -a"
 
 export HOSTNAME="`hostname`"
 export PAGER='less'
-export EDITOR='vim'
-export SVN_EDITOR='vim'
+export EDITOR='nvim'
+export SVN_EDITOR='nvim'
 
 # fix gpg
 export GPG_TTY=$(tty)
@@ -56,9 +56,10 @@ alias python='python3'
 alias svnig='svn --ignore-externals'
 alias svnd='svn --config-option config:helpers:diff-cmd=colordiff diff'
 alias top='htop'
-alias vihosts='sudo vim /etc/hosts'
+alias vihosts='sudo nvim /etc/hosts'
 alias visudo='sudo visudo'
-alias vaconf='vim ~/sites/vhosts.conf'
+alias vaconf='nvim ~/sites/vhosts.conf'
+alias vim='nvim'
 
 # moving around
 alias cd..='cd ..'
@@ -107,3 +108,5 @@ if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
