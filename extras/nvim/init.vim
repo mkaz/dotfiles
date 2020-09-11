@@ -1,27 +1,13 @@
 " ----------------------------------------------------------------------------
-" Vimrc
+" init.vim
 " From: https://github.com/mkaz/dotfiles
-"
-" Props to:
-"
-"   * Derek Wyatt, http://derekwyatt.org/
-"   * Vimcasts, http://vimcasts.org/
-"
-"   * Damien Conway, More Instantly Better Vim
-"     http://www.youtube.com/watch?v=aHm36-na4-4
-"
-"   * Doug Black
-"     https://dougblack.io/words/a-good-vimrc.html
-"
-"   * /r/vim on Reddit
-"
 " ----------------------------------------------------------------------------
 
 " use vim-plug to manage plugins
 " See: https://github.com/junegunn/vim-plug
 
 call plug#begin('~/.config/plugged')
-Plug 'airblade/vim-gitgutter'		  " git gutter
+Plug 'airblade/vim-gitgutter'	      " git gutter
 Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
 Plug 'fatih/vim-go'                   " golang support
@@ -34,7 +20,6 @@ Plug 'mhartington/oceanic-next'       " colors
 Plug 'prettier/vim-prettier'
 Plug 'rhysd/git-messenger.vim'        " inline git blame
 Plug 'reedes/vim-wordy'               " grammar check
-Plug 'sirver/ultisnips'               " snippets
 Plug 'tommcdo/vim-lion'               " alignment motion
 Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
@@ -47,10 +32,6 @@ call plug#end()
 let mapleader=","
 
 " Colors
-if has( "termguicolors" )
-    set termguicolors
-endif
-set background=dark
 colorscheme OceanicNext
 
 " Whitespace stuff
@@ -69,8 +50,6 @@ set listchars=tab:▸\ ,eol:¬
 
 " Display
 set number            " show line numbers
-set hlsearch          " highlight search term
-set showcmd           " show command
 set noshowmode        " hide mode, its in status
 
 " Operation
@@ -146,6 +125,10 @@ augroup configgroup
     autocmd FileType go nmap <Leader>b :make<CR>
     autocmd FileType go nmap <Leader>t :terminal go test<CR>
     let g:go_fmt_command = "goimports"
+
+	" rust
+	autocmd FileType rust nmap <Leader>b :terminal cargo run<CR>
+	autocmd FileType rust nmap <Leader>t :terminal cargo test<CR>
 
     " Templates
     autocmd BufRead,BufNewFile *.{tpl,eco} set ft=html
@@ -248,45 +231,4 @@ let g:goyo_width = 70
 
 " Markdown
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'php', 'python' ]
-
-" Ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-let g:UltiSnipsUsePythonVersion = 3
-
-function! WordCount()
-    let currentmode = mode()
-    if !exists("g:lastmode_wc")
-        let g:lastmode_wc = currentmode
-    endif
-    " if we modify file, open a new buffer, be in visual ever, or switch modes
-    " since last run, we recompute.
-    if &modified || !exists("b:wordcount") || currentmode =~? '\c.*v' || currentmode != g:lastmode_wc
-        let g:lastmode_wc = currentmode
-        let l:old_position = getpos('.')
-        let l:old_status = v:statusmsg
-        execute "silent normal g\<c-g>"
-        if v:statusmsg == "--No lines in buffer--"
-            return 'Empty'
-        else
-            let s:split_wc = split(v:statusmsg)
-            if index(s:split_wc, "Selected") < 0
-                let b:wordcount = str2nr(s:split_wc[11])
-            else
-                let b:wordcount = str2nr(s:split_wc[5])
-            endif
-            let v:statusmsg = l:old_status
-        endif
-        call setpos('.', l:old_position)
-        return b:wordcount . ' words'
-    else
-        return b:wordcount . ' words'
-    endif
-endfunction
-
-" source .vimlocal if exists
-let git_path = system("git rev-parse --show-toplevel 2>/dev/null")
-let vimlocal = substitute(git_path, '\n', '', '') . "/.vimlocal"
-if !empty(glob(vimlocal))
-    exec ":source " . vimlocal
-endif
 
