@@ -39,10 +39,7 @@ fi
 # gui: fonts
 read -p "Install Fonts? (N/y) " fonts
 if [ "$fonts" != "${fonts#[Yy]}" ]; then
-    mkdir ~/.fonts
-    cd ~/.fonts
-    unzip $HOME/dotfiles/extras/fonts.zip
-    cd
+	sudo apt install -y fonts-hack fonts-ibm-plex fonts-noto fonts-roboto ttf-mscorefonts-installer
 fi
 
 # syncthing
