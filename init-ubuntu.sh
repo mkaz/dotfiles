@@ -63,6 +63,7 @@ fi
 
 # Install Node via nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+nvm install --lts
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
