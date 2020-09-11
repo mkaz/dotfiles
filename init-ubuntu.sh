@@ -52,7 +52,7 @@ if [ "$syncthing" != "${syncthing#[Yy]}" ]; then
     if [ ! -f "$HOME/bin/syncthing" ]; then
         cd $HOME/Downloads
         wget https://github.com/syncthing/syncthing/releases/download/v1.8.0/syncthing-linux-amd64-v1.8.0.tar.gz
-        tar xfz syncthing-linux-amd64-v1.2.0.tar.gz
+        tar xfz syncthing-linux-amd64-v1.8.0.tar.gz
         cp syncthing-linux-amd64-v1.8.0/syncthing $HOME/bin/
         #TODO: add to GNOME startup items
         cd
