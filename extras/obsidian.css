@@ -24,33 +24,8 @@
   --text-normal: rgb(44, 44, 44);
 }
 
-.theme-dark {
-  --background-inline-code: rgb(41, 44, 46);
-  --background-nav-alt: rgb(58, 62, 63);
-  --background-nav-file-tag: rgb(116, 190, 247);
-  --background-nav-selected: rgb(73, 73, 73);
-  --background-nav: rgb(41, 44, 46);
-  --background-primary: rgb(28, 30, 32);
-  --background-tag: rgb(111, 112, 116);
-  --border-inline-code: rgb(76, 76, 76);
-  --code-block-background: rgb(32, 32, 32);
-  --code-block-border: rgb(77, 77, 77);
-  --font-family-editor: Avenir, "Avenir Next";
-  --font-family-preview: Avenir, "Avenir Next";
-  --font-monospace: Hack, monospace;
-  --interactive-accent: rgb(116, 190, 247);
-  --text-accent: rgb(116, 190, 247);
-  --text-faint: rgb(150, 150, 150);
-  --text-header: rgb(198, 213, 224);
-  --text-highlight-bg: rgb(64, 73, 181);
-  --text-inline-code: rgb(230, 230, 230);
-  --text-nav-selected: rgb(255, 255, 255);
-  --text-nav: rgb(190, 190, 190);
-  --text-normal: rgb(216, 216, 216);
-}
-
 /* header colors */
-.cm-header, 
+.cm-header,
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -58,11 +33,14 @@
 .markdown-preview-view h5,
 .markdown-preview-view h6 {
   color: var(--text-header);
+  font-family: "Noto Serif", Georgia, serif;
 }
 
 /* Changing size/color of the header hashtags ## */
 .cm-formatting-header {
-	font-family: Courier, monospace;
+	/* font-family: Courier, monospace; */
+	font-family: "Noto Serif", Georgia, serif;
+	font-style: normal;
 	color: var(--text-faint);
 }
 
@@ -81,15 +59,9 @@
   padding: 0px 4px;
 }
 
-.cm-formatting-em.cm-em {
-  color: var(--text-faint);
-  font-weight: 100;
-  font-size: 0.6em;
-}
+.cm-formatting-em.cm-em,
 .cm-formatting-strong.cm-strong {
-  color: var(--text-faint);
-  font-weight: 100;
-  font-size: 0.6em;
+  color: #44ACB9;
 }
 
 /* Wrap long nav text */
@@ -137,9 +109,9 @@
 }
 
 /* Background color of unselected tabs */
-.workspace-tab-container-before.is-before-active .workspace-tab-header-inner, 
-.workspace-tab-container-after.is-after-active .workspace-tab-header-inner, 
-.workspace-tab-header.is-before-active .workspace-tab-header-inner, 
+.workspace-tab-container-before.is-before-active .workspace-tab-header-inner,
+.workspace-tab-container-after.is-after-active .workspace-tab-header-inner,
+.workspace-tab-header.is-before-active .workspace-tab-header-inner,
 .workspace-tab-header.is-after-active .workspace-tab-header-inner {
   background-color: var(--background-nav-alt);
 }
@@ -183,17 +155,17 @@
 }
 
 /* Left nav ribbon background-color */
-.side-dock-ribbon-before.is-before-active, 
-.side-dock-ribbon-after.is-after-active, 
-.side-dock-ribbon-tab.is-before-active, 
+.side-dock-ribbon-before.is-before-active,
+.side-dock-ribbon-after.is-after-active,
+.side-dock-ribbon-tab.is-before-active,
 .side-dock-ribbon-tab.is-after-active {
   background-color: var(--background-nav);
 }
 
 /* Left nav ribbon background-color */
-.side-dock-ribbon-before.is-before-active .side-dock-ribbon-tab-inner, 
-.side-dock-ribbon-after.is-after-active .side-dock-ribbon-tab-inner, 
-.side-dock-ribbon-tab.is-before-active .side-dock-ribbon-tab-inner, 
+.side-dock-ribbon-before.is-before-active .side-dock-ribbon-tab-inner,
+.side-dock-ribbon-after.is-after-active .side-dock-ribbon-tab-inner,
+.side-dock-ribbon-tab.is-before-active .side-dock-ribbon-tab-inner,
 .side-dock-ribbon-tab.is-after-active .side-dock-ribbon-tab-inner {
   background-color: var(--background-nav-alt);
 }
@@ -215,29 +187,29 @@
 }
 
 /* Background and text color of selected item in left nav tree */
-.nav-file.is-active > .nav-file-title, 
-.nav-file.is-active > .nav-folder-title, 
-.nav-file.is-active > .nav-folder-collapse-indicator, 
-.nav-folder.is-active > .nav-file-title, 
-.nav-folder.is-active > .nav-folder-title, 
+.nav-file.is-active > .nav-file-title,
+.nav-file.is-active > .nav-folder-title,
+.nav-file.is-active > .nav-folder-collapse-indicator,
+.nav-folder.is-active > .nav-file-title,
+.nav-folder.is-active > .nav-folder-title,
 .nav-folder.is-active > .nav-folder-collapse-indicator {
   background-color: var(--background-nav-selected);
   color: var(--text-nav-selected);
 }
 
 /* Background and text color of selected item in left nav tree - when hovering */
-.nav-file.is-active > .nav-file-title:hover, 
-.nav-file.is-active > .nav-folder-title:hover, 
-.nav-file.is-active > .nav-folder-collapse-indicator:hover, 
-.nav-folder.is-active > .nav-file-title:hover, 
-.nav-folder.is-active > .nav-folder-title:hover, 
+.nav-file.is-active > .nav-file-title:hover,
+.nav-file.is-active > .nav-folder-title:hover,
+.nav-file.is-active > .nav-folder-collapse-indicator:hover,
+.nav-folder.is-active > .nav-file-title:hover,
+.nav-folder.is-active > .nav-folder-title:hover,
 .nav-folder.is-active > .nav-folder-collapse-indicator:hover {
   background-color: var(--text-accent);
   color: var(--text-nav-selected);
 }
 
 /* Background and text color of hovered item in left nav tree */
-body:not(.is-grabbing) .nav-file-title:hover, 
+body:not(.is-grabbing) .nav-file-title:hover,
 body:not(.is-grabbing) .nav-folder-title:hover {
   background-color: var(--background-secondary-alt);
   color: var(--text-nav-selected);
@@ -257,7 +229,7 @@ body:not(.is-grabbing) .nav-folder-title:hover {
 }
 
 /* Left Nav menu item - hover background color of the collapse/expand arrow */
-body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, 
+body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator,
 body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-collapse-indicator {
   background-color: var(--background-nav-alt);
 }
@@ -404,8 +376,7 @@ div.markdown-preview-view {
 }
 
 /* Enable wrapping of code blocks in the preview panel */
-.theme-light code[class*="language-"], .theme-light pre[class*="language-"],
-.theme-dark code[class*="language-"], .theme-dark pre[class*="language-"] {
+.theme-light code[class*="language-"], .theme-light pre[class*="language-"] {
   white-space: pre-wrap;
   background-color: var(--code-block-background);
 }
@@ -416,7 +387,7 @@ div.markdown-preview-view {
 } */
 
 /* Tag pillbox - common settings for editor left, editor right and preview */
-.cm-s-obsidian span.cm-hashtag-begin, 
+.cm-s-obsidian span.cm-hashtag-begin,
 .cm-s-obsidian span.cm-hashtag-end,
 a.tag {
   background-color: var(--background-tag);
