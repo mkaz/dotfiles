@@ -20,6 +20,7 @@ Plug 'mhartington/oceanic-next'       " colors
 Plug 'prettier/vim-prettier'
 Plug 'rhysd/git-messenger.vim'        " inline git blame
 Plug 'reedes/vim-wordy'               " grammar check
+Plug 'rust-lang/rust.vim'             " rusty!
 Plug 'tommcdo/vim-lion'               " alignment motion
 Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
@@ -129,6 +130,7 @@ augroup configgroup
 	" rust
 	autocmd FileType rust nmap <Leader>b :terminal cargo run<CR>
 	autocmd FileType rust nmap <Leader>t :terminal cargo test<CR>
+	let g:rustfmt_autosave = 1
 
     " Templates
     autocmd BufRead,BufNewFile *.{tpl,eco} set ft=html
