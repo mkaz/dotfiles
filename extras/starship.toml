@@ -1,0 +1,30 @@
+
+# Gimme some space
+add_newline = true
+
+[cmd_duration]
+disabled = true
+
+[git_branch]
+format = "[⇒](bold green) [$symbol$branch]($style) "
+symbol = "🌱 "
+
+[git_status]
+format="$all_status"
+deleted = "[✘](red)"
+modified = "🔸"
+staged= "✔"
+untracked = "?"
+
+[jobs]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[rust]
+format = "$symbol($style)"
+

@@ -70,9 +70,6 @@ alias cdt='cd ~/tmp/'
 # typos
 alias ls-l='ls -l'
 
-# Prompt
-source ~/dotfiles/prompt
-
 # load autojump
 if [[ -e /usr/share/autojump/autojump.bash ]]; then
     source /usr/share/autojump/autojump.bash
@@ -108,5 +105,7 @@ if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
-
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
+eval "$(starship init bash)"
