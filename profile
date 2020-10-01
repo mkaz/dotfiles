@@ -56,7 +56,7 @@ alias python='python3'
 alias svnig='svn --ignore-externals'
 alias svnd='svn --config-option config:helpers:diff-cmd=colordiff diff'
 alias top='htop'
-alias vihosts='sudo nvim /etc/hosts'
+alias vihosts='sudo vim /etc/hosts'
 alias visudo='sudo visudo'
 alias vaconf='nvim ~/sites/vhosts.conf'
 alias vim='nvim'
@@ -92,10 +92,6 @@ eval $(dircolors /home/mkaz/dotfiles/extras/dircolors)
 
 if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
     source ~/dotfiles/rcfiles/.fzf.bash
-fi
-
-if [[ -e ~/.nvm/nvm.sh ]]; then
-    source ~/.nvm/nvm.sh
 fi
 
 unset command_not_found_handle

@@ -11,6 +11,7 @@ ln -s dotfiles/profile .profile
 mkdir ~/bin/
 mkdir ~/src/
 mkdir ~/tmp/
+mkdir ~/.config/
 
 ## update & upgrade
 sudo apt update && sudo apt upgrade
@@ -31,8 +32,14 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
 # Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-nvm install --lts
+## need to init
+#nvm install --lts
 
+# Neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage $HOME/bin/nvim
+ln -s $HOME/dotfiles/extras/nvim $HOME/.config/
 
 # LAMP
 read -p "Install LAMP Stack? (Y/n) " lamp
