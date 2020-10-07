@@ -25,6 +25,9 @@ disabled = true
 [package]
 disabled = true
 
+[php]
+disabled = true
+
 [rust]
 format = "$symbol($style)"
 
