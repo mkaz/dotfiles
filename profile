@@ -105,3 +105,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
 eval "$(starship init bash)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+## WSL auto start services
+sudo service apache2 start
+sudo service mysql start
+sudo service cron start
