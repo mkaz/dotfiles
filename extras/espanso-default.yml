@@ -33,4 +33,15 @@ matches:
   - trigger: ":lorem"
     replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper."
 
+  - trigger: ":yteuler"
+    replace: "A screencast series learning Rust by solving Project Euler problems.\n\nFor more Rust, see my notes and examples at: https://mkaz.blog/working-with-rust"
 
+  - trigger: ":tweuler"
+    replace: "Just released Euler #6 in Rust, the next in my screencast series learning Rust going through Project Euler problems."
+
+  - trigger: ":wp"
+    replace: "WordPress"
+
+  - trigger: ":gb"
+    replace: "Gutenberg"
+    
