@@ -22,7 +22,7 @@ cd ~/dotfiles/
 sudo apt install -y git sudo zip curl wget vim-nox
 sudo apt install -y build-essential stow pwgen htop autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf newsboat figlet pass
+sudo apt install -y ripgrep fzf newsboat figlet pass jq
 
 # connect configs
 stow rcfiles
