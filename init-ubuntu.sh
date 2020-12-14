@@ -42,7 +42,24 @@ if [ "$fonts" != "${fonts#[Yy]}" ]; then
 	sudo apt install -y fonts-hack fonts-ibm-plex fonts-noto fonts-roboto ttf-mscorefonts-installer
 fi
 
-# syncthing
+#----------------------------------------
+# Neovim
+#----------------------------------------
+cd $HOME/Downloads
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mv ./nvim.appimage $HOME/bin/nvim
+
+# symlink config
+mkdir -p $HOME/.config
+cd $HOME/.config
+ln -s $HOME/dotfiles/extras/nvim
+#----------------------------------------
+
+
+#----------------------------------------
+# Syncthing
+#----------------------------------------
 read -p "Install Syncthing? (N/y) " syncthing
 if [ "$syncthing" != "${syncthing#[Yy]}" ]; then
 	echo "✔ Installing Syncthing"
@@ -57,6 +74,7 @@ if [ "$syncthing" != "${syncthing#[Yy]}" ]; then
 else
 	echo "✖ Skipping Syncthing"
 fi
+#----------------------------------------
 
 # Install Node via nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
