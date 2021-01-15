@@ -99,12 +99,6 @@ nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>, :Buffers<CR>
 noremap <Leader>f :Rg<space>
 
-" Gooey bits
-set guifont=Hack\ 14
-set guioptions-=T  "toolbar
-set guioptions-=r  "scrollbar
-" set guioptions-=m  "menu bar
-
 " File Specific
 
 augroup configgroup
@@ -129,8 +123,9 @@ augroup configgroup
 
 	" rust
 	autocmd FileType rust nmap <Leader>b :terminal cargo run<CR>
-	autocmd FileType rust nmap <Leader>t :terminal cargo test<CR>
+	autocmd FileType rust nmap <Leader>t :call RunRustTest() <CR>
 	let g:rustfmt_autosave = 1
+
 
     " Templates
     autocmd BufRead,BufNewFile *.{tpl,eco} set ft=html
@@ -145,6 +140,11 @@ augroup configgroup
 	autocmd BufWritePre * %s/\s\+$//e
 
 augroup END
+
+function! RunRustTest()
+	set splitbelow
+	exec winheight(0)/2."split" | terminal cargo test "%:t:r"
+endfunction
 
 " Key Bindings
 
