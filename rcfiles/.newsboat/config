@@ -1,6 +1,6 @@
 # newsboat config
 
-browser "~/bin/chrome.exe"
+browser "/usr/bin/firefox"
 text-width 72
 reload-threads 8
 
