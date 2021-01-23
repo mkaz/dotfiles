@@ -134,3 +134,7 @@ fi
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install -y ./espanso-debian-amd64.deb
 mv espanso-debian-amd64.deb ~/Downloads/
+
+# use latest git
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo apt install -y git
