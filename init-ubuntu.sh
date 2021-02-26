@@ -130,10 +130,15 @@ else
 	apt install -y sublime-text
 fi
 
+cd $HOME/Downloads
+
+## install fd
+wget https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
+sudo apt install -y ./fd_8.2.1_amd64.deb
+
 # espanso
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install -y ./espanso-debian-amd64.deb
-mv espanso-debian-amd64.deb ~/Downloads/
 
 # use latest git
 sudo add-apt-repository -y ppa:git-core/ppa
