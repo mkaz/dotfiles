@@ -23,7 +23,7 @@ cd ~/dotfiles/
 sudo apt install -y git subversion sudo zip curl wget ufw vim-nox
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf jq newsboat figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
+sudo apt install -y fzf jq newsboat figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
 
 
 # works better after its installed
@@ -80,8 +80,6 @@ fi
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 nvm install --lts
 
-# Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
 # LAMP (use Local?)
 read -p "Install LAMP Stack? (Y/n) " lamp
@@ -132,9 +130,16 @@ fi
 
 cd $HOME/Downloads
 
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+
 ## install fd
 wget https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
 sudo apt install -y ./fd_8.2.1_amd64.deb
+
+# Add bat and ripgrep
+# Necessary for 20.04 - can be simplified to normal bat/ripgrep on upgrade
+sudo apt install -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
 # espanso
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
