@@ -8,7 +8,8 @@ fi
 # ---------------
 [[ $- == *i* ]] && source "/home/mkaz/.fzf/shell/completion.bash" 2> /dev/null
 
-export FZF_DEFAULT_COMMAND='rg --files --follow --glob=!__pycache__/* --glob=!*.pyc'
+#export FZF_DEFAULT_COMMAND='rg --files --follow --glob=!__pycache__/* --glob=!*.pyc'
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 
 # Key bindings
