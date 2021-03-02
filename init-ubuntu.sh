@@ -141,6 +141,11 @@ sudo apt install -y ./fd_8.2.1_amd64.deb
 # Necessary for 20.04 - can be simplified to normal bat/ripgrep on upgrade
 sudo apt install -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
+## install exa
+wget https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
+unzip exa-linux-x86_64-0.9.0.zip
+mv exa-linux-x86_64 ~/bin/exa
+
 # espanso
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install -y ./espanso-debian-amd64.deb
