@@ -126,6 +126,8 @@ augroup configgroup
 	autocmd FileType rust nmap <Leader>t :call RunRustTest() <CR>
 	let g:rustfmt_autosave = 1
 
+	" Run Prettier on save
+	autocmd BufWritePre *.js Prettier
 
     " Templates
     autocmd BufRead,BufNewFile *.{tpl,eco} set ft=html
