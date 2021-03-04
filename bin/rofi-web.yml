@@ -1,0 +1,12 @@
+
+"gpr":
+    "https://github.com/wordpress/gutenberg/pull/"
+"goog":
+    "https://www.google.com/search?hl=en&q="
+"amzn":
+    "https://www.amazon.com/s?k="
+"tr":
+    "https://translate.google.com/?sl=en&tl=es&op=translate&text="
+"trac":
+    "https://core.trac.wordpress.org/ticket/"
+
