@@ -72,8 +72,8 @@ if [[ -e /usr/share/autojump/autojump.bash ]]; then
     source /usr/share/autojump/autojump.bash
 fi
 
-if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
-    source /usr/lib/git-core/git-sh-prompt
+if [[ -e /home/mkaz/.config/tealdeer-completion.bash ]]; then
+    source /home/mkaz/.config/tealdeer-completion.bash
 fi
 
 if [[ -e /usr/share/bash-completion/completions/git ]]; then
@@ -83,9 +83,6 @@ fi
 if [[ -e /usr/share/bash-completion/completions/pass ]]; then
     source /usr/share/bash-completion/completions/pass
 fi
-
-# dircolors
-eval $(dircolors /home/mkaz/dotfiles/extras/dircolors)
 
 # Do we need this?
 if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
