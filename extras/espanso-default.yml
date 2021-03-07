@@ -21,6 +21,15 @@ matches:
         params:
           format: "%b %d, %Y"
 
+  - trigger: ":ddate"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+
   # Shell commands
   # be careful because if in terminal, will run result
   - trigger: ":shell"
