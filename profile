@@ -41,8 +41,7 @@ apache() {
 }
 alias tailoge='sudo tail -f /var/log/apache2/error.log'
 
-alias apt='sudo apt'
-alias bat='batcat'
+alias pacman='sudo pacman'
 alias grep='rg -i'
 alias less='bat'
 alias ls='exa --time-style long-iso -l -h --group-directories-first'
@@ -68,8 +67,8 @@ alias cdt='cd ~/tmp/'
 alias ls-l='ls -l'
 
 # load autojump
-if [[ -e /usr/share/autojump/autojump.bash ]]; then
-    source /usr/share/autojump/autojump.bash
+if [[ -e /home/mkaz/.autojump/etc/profile.d/autojump.sh ]]; then
+    source /home/mkaz/.autojump/etc/profile.d/autojump.sh
 fi
 
 if [[ -e /home/mkaz/.config/tealdeer-completion.bash ]]; then
@@ -89,7 +88,7 @@ if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
     source ~/dotfiles/rcfiles/.fzf.bash
 fi
 
-unset command_not_found_handle
+#unset command_not_found_handle
 
 # run host specific profile
 if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
@@ -103,4 +102,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source "$HOME/.cargo/env"
+export DOCKER_HOST=tcp://127.0.0.1:2376
+#source "$HOME/.cargo/env"
