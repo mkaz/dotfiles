@@ -50,10 +50,13 @@ if [ "$lamp" != "${lamp#[Nn]}" ]; then
 	echo "✖ Skipping LAMP"
 else
 	echo "✔ Installing LAMP"
-    # sudo apt install -y apache2
-    # sudo apt install -y mariadb-client mariadb-server
-    # sudo apt install -y php libapache2-mod-php php-cli php-curl php-gd php-imagick php-intl php-mbstring php-mysql php-xml
-    # sudo a2enmod rewrite expires vhost_alias ssl headers
+    sudo pacman -Syu --needed --noconfirm apache
+    sudo pacman -Syu --needed --noconfirm php php-gd php-imagick php-intl php-apache
+    sudo pacman -Syu --needed --noconfirm mariadb
+	# create initial db
+	sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+	sudo systemctl enable httpd
+	sudo systemctl enable mysql
 fi
 
 # wp cli
