@@ -37,9 +37,9 @@ alias xpsg='ps -aef | grep -i'
 
 # shortcuts
 apache() {
-    sudo systemctl $1 apache2
+    sudo systemctl $1 httpd
 }
-alias tailoge='sudo tail -f /var/log/apache2/error.log'
+alias tailoge='sudo tail -f /var/log/httpd/error_log'
 
 alias pacman='sudo pacman'
 alias grep='rg -i'
@@ -52,7 +52,7 @@ alias pbpaste='xclip -selection clipboard -o'
 alias python='python3'
 alias svnig='svn --ignore-externals'
 alias top='htop'
-alias vihosts='sudo vim /etc/hosts'
+alias vihosts='sudo nvim /etc/hosts'
 alias visudo='sudo visudo'
 alias vaconf='nvim ~/sites/vhosts.conf'
 alias vim='nvim'
