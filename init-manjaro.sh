@@ -26,14 +26,11 @@ gnome-extensions install gTile@vibou
 cd ~/dotfiles/
 stow rcfiles
 
-# gui: photo and video
-read -p "Install Photo & Video? (N/y) " media
-if [ "$media" != "${media#[Yy]}" ]; then
-    # sudo apt install -y imagemagick pngcrush pandoc gifsicle obs-studio
-    # sudo apt install -y rapid-photo-downloader geeqie peek gpick fonts-noto-color-emoji
-fi
+# Image and Media
+sudo pacman -Syu --needed --noconfirm imagemagick pngcrush pandoc gifsicle peek gpick
 
-# Neovim symlink config
+# Neovim
+sudo pacman -Syu --needed --noconfirm neovim neovim-qt
 mkdir -p $HOME/.config
 cd $HOME/.config
 ln -s $HOME/dotfiles/extras/nvim
