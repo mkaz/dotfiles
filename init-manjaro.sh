@@ -20,6 +20,8 @@ sudo pacman -Syu --needed --noconfirm powerline-fonts ttf-roboto
 
 # gnome extensions
 gnome-extensions install gTile@vibou
+gnome-extensions install ProxySwitcher@flannaghan.com
+
 
 ## use stow to configure rcfiles
 # works better after its installed
