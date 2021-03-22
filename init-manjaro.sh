@@ -21,6 +21,7 @@ sudo pacman -Syu --needed --noconfirm powerline-fonts ttf-roboto
 # gnome extensions
 gnome-extensions install gTile@vibou
 gnome-extensions install ProxySwitcher@flannaghan.com
+gnome-extensions install emoji-selector@maestroschan.fr
 
 
 ## use stow to configure rcfiles
