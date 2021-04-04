@@ -42,3 +42,5 @@
 	gpgSign = true
 [core]
 	excludesfile = ~/.gitignore
+[pull]
+	rebase = true
