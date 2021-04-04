@@ -3,6 +3,8 @@
 
 
 ## WSL auto start services
-sudo service apache2 start
-sudo service mysql start
-sudo service cron start
+if [[ -z "$TMUX" ]]; then
+    sudo service apache2 start
+    sudo service mysql start
+    sudo service cron start
+fi
