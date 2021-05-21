@@ -16,6 +16,9 @@ modified = "🔸"
 staged= "✔"
 untracked = "?"
 
+[hostname]
+format = "[$hostname]($style) "
+
 [jobs]
 disabled = true
 
@@ -31,3 +34,5 @@ disabled = true
 [rust]
 format = "$symbol($style)"
 
+[username]
+disabled = true
