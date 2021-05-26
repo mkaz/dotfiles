@@ -21,7 +21,7 @@ export SVN_EDITOR='nvim'
 export GPG_TTY=$(tty)
 
 # Build PATH
-PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH:$HOME/dotfiles/bin"
 PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
 
 # default command options
@@ -56,6 +56,8 @@ alias vihosts='sudo nvim /etc/hosts'
 alias visudo='sudo visudo'
 alias vaconf='nvim ~/sites/vhosts.conf'
 alias vim='nvim'
+
+alias vimmod='git ls-files -m | fzf --multi | xargs --no-run-if-empty nvim'
 
 # moving around
 alias cd..='cd ..'
@@ -103,4 +105,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export DOCKER_HOST=tcp://127.0.0.1:2376
-#source "$HOME/.cargo/env"
+
