@@ -19,7 +19,7 @@ matches:
       - name: mydate
         type: date
         params:
-          format: "%b %d, %Y"
+          format: "%b %d, %Y - %a"
 
   - trigger: ":ddate"
     replace: "{{mydate}}"
