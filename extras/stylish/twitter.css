@@ -1,22 +1,27 @@
 
-.moments,
-li[data-suggestion-json*="ActivityTweet"],
-li.promoted-trend,
-li.promoted-account,
-div.promoted-tweet,
-div.flex-module.trends-container,
-div.flexmodule.trends,
-div.module.trends,
-div.module.roaming-module.wtf-module.js-wtf-module.has-content,
-div.Footer.module.roaming-module,
-div.ProfileWTFAndTrends,
-div.trends-inner,
-div.flex-module.import-prompt {
-    display: none !important
+a[aria-label="Search and explore"],
+a[aria-label="Bookmarks"],
+a[aria-label="Lists"],
+a[aria-label="Tweet"],
+div[aria-label="More menu items"],
+div[data-testid="placementTracking"],
+aside[aria-label="Who to follow"],
+div[aria-label="Timeline: Trending now"] {
+    display: none !important;
 }
 
-div.module.Trends.trends,
-div.RelatedUsers.module {
-    display: none !important
+
+/* meta bar */
+a[aria-label="View Tweet activity"],
+div[aria-label="Share Tweet"],
+div[data-testid="retweet"],
+div[data-testid="like"],
+div[data-testid="reply"] {
+    display: none !important;
+}
+
+article {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
 }
 
