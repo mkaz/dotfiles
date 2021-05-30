@@ -27,6 +27,7 @@ Plug 'tpope/vim-markdown'             " markdown
 Plug 'tpope/vim-obsession'            " session control
 Plug 'tpope/vim-sensible'             " default settings
 Plug 'tpope/vim-surround'             " surround motion
+Plug 'vimwiki/vimwiki'                " vimwiki
 call plug#end()
 
 " Settings
@@ -236,3 +237,6 @@ let g:goyo_width = 70
 " Markdown
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'php', 'python' ]
 
+" Vim Wiki
+let g:vimwiki_list = [{'path': '~/Documents/Notes/', 'syntax': 'markdown'}]
+au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
