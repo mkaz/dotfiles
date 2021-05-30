@@ -15,3 +15,32 @@ li.menu-nfl {
 .now-feed-content {
     display: none;
 }
+
+.icon-font-before.icon-brand-insider-solid-before {
+    display: none;
+}
+
+
+body.story article figure.video {
+    display: none;
+}
+
+li.menu-nfl {
+    display: none;
+}
+
+.now-feed-content {
+    display: none;
+}
+
+
+
+#favfeed-footer,
+footer.PageFooter,
+.module.sideLogin,
+.sub-module.sub-module-news,
+.sub-module.quicklinks,
+.sub-module.espnDaily,
+.sub-module.editorial {
+    display: none !important;
+}
