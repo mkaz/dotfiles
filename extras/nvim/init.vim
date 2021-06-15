@@ -10,7 +10,6 @@ call plug#begin('~/.config/plugged')
 Plug 'airblade/vim-gitgutter'	      " git gutter
 Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
-Plug 'fatih/vim-go'                   " golang support
 Plug 'itchyny/lightline.vim'          " fancy status line
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'               " fuzzy search
