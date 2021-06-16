@@ -19,10 +19,10 @@ sudo apt update && apt upgrade
 cd ~/dotfiles/
 stow rcfiles
 
-sudo apt install -y git sudo zip curl wget ufw vim-nox
+sudo apt install -y git sudo zip curl wget ufw neovim
 sudo apt install -y build-essential stow pwgen htop autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf figlet
+sudo apt install -y ripgrep fzf figlet exa fd-find
 
 # LAMP
 read -p "Install LAMP Stack? (Y/n) " lamp
