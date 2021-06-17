@@ -3,9 +3,10 @@
 body {
   margin: 32px;
   font-size: 18px;
-  background: white;
+  background: white; 
 }
 
+tr.spacer { height: 16px !important; }
 
 /* Top Table */
 body > center > table > tbody > tr:first-child > td > table td {
@@ -32,6 +33,10 @@ body > center > table > tbody > tr:first-child > td > table td {
     margin-right: 36px;
 }
 
+.comment {
+    font-size: 16px;
+    font-family: "Cambria";
+}
 
 a {
   font-weight: normal;
@@ -74,10 +79,7 @@ table.itemlist {
   font-weight: normal !important;
 }
 
-.subtext {
-    display: none;
-}
 
 .votearrow { display: none; }
 
-.rank { margin-right: 8px; }
+.rank { margin-right: 8px;
