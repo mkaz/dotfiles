@@ -41,7 +41,7 @@ apache() {
 }
 alias tailoge='sudo tail -f /var/log/httpd/error_log'
 
-alias pacman='sudo pacman'
+alias apt='sudo apt'
 alias grep='rg -i'
 alias less='bat'
 alias ls='exa --time-style long-iso -l -h --group-directories-first'
@@ -69,8 +69,8 @@ alias cdt='cd ~/tmp/'
 alias ls-l='ls -l'
 
 # load autojump
-if [[ -e /home/mkaz/.autojump/etc/profile.d/autojump.sh ]]; then
-    source /home/mkaz/.autojump/etc/profile.d/autojump.sh
+if [[ -e /usr/share/autojump/autojump.sh ]]; then
+    source /usr/share/autojump/autojump.sh
 fi
 
 if [[ -e /home/mkaz/.config/tealdeer-completion.bash ]]; then
@@ -85,11 +85,6 @@ if [[ -e /usr/share/bash-completion/completions/pass ]]; then
     source /usr/share/bash-completion/completions/pass
 fi
 
-# Do we need this?
-if [[ -e ~/dotfiles/rcfiles/.fzf.bash ]]; then
-    source ~/dotfiles/rcfiles/.fzf.bash
-fi
-
 #unset command_not_found_handle
 
 # run host specific profile
@@ -100,7 +95,6 @@ fi
 export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
 eval "$(starship init bash)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+. "$HOME/.cargo/env"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

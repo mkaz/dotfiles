@@ -20,10 +20,10 @@ sudo apt update && sudo apt upgrade -y
 ## use stow to configure rcfiles
 cd ~/dotfiles/
 
-sudo apt install -y git subversion sudo zip curl wget ufw vim-nox
+sudo apt install -y git subversion sudo zip curl wget ufw neovim
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
-sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y fzf jq newsboat figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
+sudo apt install -y net-tools dnsutils autossh apt-transport-https syncthing
+sudo apt install -y fzf jq figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
 
 
 # works better after its installed
@@ -42,14 +42,6 @@ if [ "$fonts" != "${fonts#[Yy]}" ]; then
 	sudo apt install -y fonts-hack fonts-ibm-plex fonts-noto fonts-roboto ttf-mscorefonts-installer
 fi
 
-#----------------------------------------
-# Neovim
-#----------------------------------------
-cd $HOME/Downloads
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-mv ./nvim.appimage $HOME/bin/nvim
-
 # symlink config
 mkdir -p $HOME/.config
 cd $HOME/.config
@@ -57,28 +49,8 @@ ln -s $HOME/dotfiles/extras/nvim
 #----------------------------------------
 
 
-#----------------------------------------
-# Syncthing
-#----------------------------------------
-read -p "Install Syncthing? (N/y) " syncthing
-if [ "$syncthing" != "${syncthing#[Yy]}" ]; then
-	echo "✔ Installing Syncthing"
-    if [ ! -f "$HOME/bin/syncthing" ]; then
-        cd $HOME/Downloads
-        wget https://github.com/syncthing/syncthing/releases/download/v1.8.0/syncthing-linux-amd64-v1.8.0.tar.gz
-        tar xfz syncthing-linux-amd64-v1.8.0.tar.gz
-        cp syncthing-linux-amd64-v1.8.0/syncthing $HOME/bin/
-        #TODO: add to GNOME startup items
-        cd
-    fi
-else
-	echo "✖ Skipping Syncthing"
-fi
-#----------------------------------------
-
-# Install Node via nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-nvm install --lts
+# Install Node using volta
+curl https://get.volta.sh | bash
 
 
 # LAMP (use Local?)
