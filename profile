@@ -18,11 +18,11 @@ export EDITOR='nvim'
 export SVN_EDITOR='nvim'
 
 # fix gpg
-export GPG_TTY=$(tty)
+#export GPG_TTY=$(tty)
 
 # Build PATH
-PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH:$HOME/dotfiles/bin"
-PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
+PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/dotfiles/bin:$HOME/.volta/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+export PATH
 
 # default command options
 alias curl='curl --silent'
@@ -92,9 +92,7 @@ if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
-export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
-eval "$(starship init bash)"
+# export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
+# eval "$(starship init bash)"
+source ~/dotfiles/extras/git-prompt.sh
 
-. "$HOME/.cargo/env"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
