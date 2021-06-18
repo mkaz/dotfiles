@@ -20,7 +20,7 @@ sudo apt update && sudo apt upgrade -y
 ## use stow to configure rcfiles
 cd ~/dotfiles/
 
-sudo apt install -y git subversion sudo zip curl wget ufw neovim
+sudo apt install -y git subversion sudo zip curl wget ufw neovim neovim-qt
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https syncthing
 sudo apt install -y fzf jq figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
