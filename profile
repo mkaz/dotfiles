@@ -85,14 +85,15 @@ if [[ -e /usr/share/bash-completion/completions/pass ]]; then
     source /usr/share/bash-completion/completions/pass
 fi
 
-#unset command_not_found_handle
+# ubuntu nag
+unset command_not_found_handle
 
 # run host specific profile
 if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
-# export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
-# eval "$(starship init bash)"
-source ~/dotfiles/extras/git-prompt.sh
+export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
+eval "$(starship init bash)"
 
+. "$HOME/.cargo/env"
