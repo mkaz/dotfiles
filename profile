@@ -37,13 +37,14 @@ alias xpsg='ps -aef | grep -i'
 
 # shortcuts
 apache() {
-    sudo systemctl $1 httpd
+    sudo systemctl $1 apache2
 }
-alias tailoge='sudo tail -f /var/log/httpd/error_log'
+alias tailoge='sudo tail -f /var/log/apache2/error.log'
 
 alias apt='sudo apt'
 alias grep='rg -i'
-alias less='bat'
+alias cat='batcat'
+alias less='batcat'
 alias ls='exa --time-style long-iso -l -h --group-directories-first'
 alias ll='ls -a --git'
 alias o='xdg-open'
