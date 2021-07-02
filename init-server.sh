@@ -17,7 +17,7 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 ## double check we have these
-sudo apt-get -y install git sudo zip stow vim vim-gtk3
+sudo apt-get -y install git sudo zip stow vim
 
 ## use stow to configure rcfiles
 cd ~/dotfiles/
