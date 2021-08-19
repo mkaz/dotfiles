@@ -114,6 +114,27 @@ mv exa-linux-x86_64 ~/bin/exa
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install -y ./espanso-debian-amd64.deb
 
-# use latest git
-sudo add-apt-repository -y ppa:git-core/ppa
-sudo apt install -y git
+# Obsidian
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.12/Obsidian-0.12.12.AppImage
+mv Obsidian-0.12.12.AppImage $HOME/bin/Obsidian.desktop
+curl -L -o obsidian.png https://cdn.discordapp.com/icons/686053708261228577/1361e62fed2fee55c7885103c864e2a8.png
+sudo cp obsidian.png /usr/share/pixmaps/
+cat << _EOL > $HOME/.local/share/applications/Obsidian.desktop
+[Desktop Entry]
+Name=Obsidian
+Comment=Markdown Notetaking App
+Terminal=false
+GenericName=Text Editor
+Type=Application
+Exec=/home/matthias/AppImages/Obsidian-0.10.11.AppImage %u
+Icon=obsidian
+StartupWMClass=obsidian
+MimeType=x-scheme-handler/obsidian;
+_EOL
+
+# Signal
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+	  sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+sudo apt update && sudo apt install signal-desktop
