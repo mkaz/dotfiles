@@ -27,6 +27,7 @@ export PATH
 # default command options
 alias curl='curl --silent'
 alias df='df -h -x tmpfs'
+alias fd='fdfind'
 alias ffmpeg='ffmpeg -hide_banner'
 alias make='make --quiet'
 alias rg='rg -i'
@@ -98,3 +99,5 @@ export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
 eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
