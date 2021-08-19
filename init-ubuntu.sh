@@ -52,6 +52,9 @@ ln -s $HOME/dotfiles/extras/nvim
 # Install Node using volta
 curl https://get.volta.sh | bash
 
+# enable and start syncthing
+sudo systemctl enable syncthing@mkaz.service
+sudo systemctl start syncthing@mkaz.service
 
 # LAMP (use Local?)
 read -p "Install LAMP Stack? (Y/n) " lamp
