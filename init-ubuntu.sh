@@ -91,17 +91,6 @@ sudo systemctl disable cups-browsed
 
 # Software installs
 
-# sublime text
-read -p "Install Sublime Text? (Y/n) " sublime
-if [ "$sublime" != "${sublime#[Nn]}" ]; then
-	echo "✖ Skipping Sublime Text"
-else
-	echo "✔ Installing Sublime Text"
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-	echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-	sudo apt update
-	sudo apt install -y sublime-text
-fi
 
 cd $HOME/Downloads
 
@@ -114,7 +103,7 @@ sudo apt install -y ./fd_8.2.1_amd64.deb
 
 # Add bat and ripgrep
 # Necessary for 20.04 - can be simplified to normal bat/ripgrep on upgrade
-sudo apt install -o Dpkg::Options::="--force-overwrite" bat ripgrep
+#sudo apt install -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
 ## install exa
 wget https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
