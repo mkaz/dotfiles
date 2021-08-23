@@ -21,7 +21,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Oceanic Next",
     "workbench.colorCustomizations": {
         "activityBar.background": "#09141B",
         "editor.background": "#09141B",
@@ -36,12 +35,8 @@
     "workbench.settings.editor": "json",
     "workbench.tree.indent": 16,
     "workbench.iconTheme": null,
-    // Extension specific
-    "go.formatTool": "goimports",
 
     "[markdown]": {
-        "editor.fontFamily": "\"CMU Typewriter Text\", monospace",
-        "editor.fontSize": 22,
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 80,
         "editor.lineNumbers": "on",
@@ -54,5 +49,5 @@
     },
     "javascript.autoClosingTags": false,
     "typescript.autoClosingTags": false,
-
+    "telemetry.enableTelemetry": false
 }
