@@ -15,6 +15,7 @@ Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'               " fuzzy search
 Plug 'junegunn/goyo.vim'              " writing
 Plug 'junegunn/vim-slash'             " search highlighting
+Plug 'maxmellon/vim-jsx-pretty'       " pretty jsx
 Plug 'mhartington/oceanic-next'       " colors
 Plug 'prettier/vim-prettier'
 Plug 'rhysd/git-messenger.vim'        " inline git blame
@@ -23,8 +24,6 @@ Plug 'rust-lang/rust.vim'             " rusty!
 Plug 'tommcdo/vim-lion'               " alignment motion
 Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
-Plug 'tpope/vim-obsession'            " session control
-Plug 'tpope/vim-sensible'             " default settings
 Plug 'tpope/vim-surround'             " surround motion
 Plug 'vimwiki/vimwiki'                " vimwiki
 call plug#end()
@@ -95,7 +94,7 @@ set wildignore+=*.DS_Store            "OSX files
 set wildignore+=*__pycache__
 
 " fzf and ripgrep
-nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>, :Buffers<CR>
 noremap <Leader>f :Rg<space>
 
@@ -223,6 +222,11 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 command! Vmake silent w | silent make | unsilent redraw! | cwindow
 nnoremap <Leader>m :Vmake<CR>
+
+"VimDo
+nnoremap <Leader>td :edit $HOME/Documents/Notes/worklog/worklog-2021.md<CR>
+
+
 
 " Plugin Settings
 
