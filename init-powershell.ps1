@@ -15,7 +15,7 @@ scoop install signal slack syncthingtray
 
 # Copy configs to correct location
 # TODO: symlink or sync
-Copy-Item "configs\nvim" -Destination "$HOME\AppData\Local\nvim" -Recurse
+Copy-Item "configs\nvim" -Destination $env:LOCALAPPDATA -Recurse
 
 Copy-Item "configs\espanso\default.yml" -Destination "$HOME\scoop\apps\espanso\current\.espanso\default.yml"
 
