@@ -40,6 +40,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set encoding=utf-8
+set fileformat=unix
+set fileformats=unix
 
 " default wrap lines, break at word
 set wrap!
