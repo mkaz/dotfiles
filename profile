@@ -95,7 +95,7 @@ if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
 fi
 
-export STARSHIP_CONFIG=~/dotfiles/extras/starship.toml
+export STARSHIP_CONFIG=~/dotfiles/configs/starship/config.toml
 eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"

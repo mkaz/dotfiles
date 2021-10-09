@@ -25,9 +25,14 @@ sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https syncthing
 sudo apt install -y fzf jq figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
 
+# link up configs
+ln -s $HOME/dotfiles/configs/git/gitattributes $HOME/.gitattributes
+ln -s $HOME/dotfiles/configs/git/gitconfig $HOME/.gitconfig
+ln -s $HOME/dotfiles/configs/git/gitignore $HOME/.gitignore
 
-# works better after its installed
-stow rcfiles
+# symlink config
+mkdir -p $HOME/.config
+ln -s $HOME/dotfiles/extras/nvim $HOME/.config/nvim
 
 # gui: photo and video
 read -p "Install Photo & Video? (N/y) " media
@@ -42,12 +47,7 @@ if [ "$fonts" != "${fonts#[Yy]}" ]; then
 	sudo apt install -y fonts-hack fonts-ibm-plex fonts-noto fonts-roboto ttf-mscorefonts-installer
 fi
 
-# symlink config
-mkdir -p $HOME/.config
-cd $HOME/.config
-ln -s $HOME/dotfiles/extras/nvim
 #----------------------------------------
-
 
 # Install Node using volta
 curl https://get.volta.sh | bash
