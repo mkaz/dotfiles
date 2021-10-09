@@ -7,7 +7,7 @@ disabled = true
 
 [git_branch]
 format = "[⇒](bold green) [$symbol$branch]($style) "
-symbol = "🌱 "
+symbol = "🌱"
 
 [git_status]
 format="$all_status"
@@ -33,6 +33,12 @@ disabled = true
 
 [rust]
 format = "$symbol($style)"
+
+[shell]
+bash_indicator = ""
+powershell_indicator ="PS"
+format="[$indicator ](blue)"
+disabled = false
 
 [username]
 disabled = true
