@@ -36,8 +36,8 @@ format = "$symbol($style)"
 
 [shell]
 bash_indicator = ""
-powershell_indicator ="PS"
-format="[$indicator ](blue)"
+powershell_indicator ="PS "
+format="[$indicator](blue)"
 disabled = false
 
 [username]
