@@ -18,7 +18,7 @@ export EDITOR='nvim'
 export SVN_EDITOR='nvim'
 
 # fix gpg
-#export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 
 # Build PATH
 PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
