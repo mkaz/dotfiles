@@ -21,7 +21,7 @@ export SVN_EDITOR='nvim'
 #export GPG_TTY=$(tty)
 
 # Build PATH
-PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/dotfiles/bin:$HOME/.volta/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
 export PATH
 
 # default command options
