@@ -90,6 +90,11 @@ fi
 # ubuntu nag
 unset command_not_found_handle
 
+# Init rust.
+if [[ -e ~/.cargo/env ]]; then
+    source ~/.cargo/env
+fi
+
 # run host specific profile
 if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
     source ~/dotfiles/profile.$HOSTNAME
@@ -98,6 +103,5 @@ fi
 export STARSHIP_CONFIG=~/dotfiles/configs/starship/config.toml
 eval "$(starship init bash)"
 
-. "$HOME/.cargo/env"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
