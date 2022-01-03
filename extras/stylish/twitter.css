@@ -1,4 +1,5 @@
 
+div[aria-label="Share Tweet"],
 a[aria-label="Search and explore"],
 a[aria-label="Bookmarks"],
 a[aria-label="Lists"],
@@ -24,4 +25,6 @@ article {
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
 }
+
+
 
