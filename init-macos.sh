@@ -33,7 +33,7 @@ brew install --cask homebrew/cask-fonts/font-hack
 # curl https://get.volta.sh | bash
 
 # Rust
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ## New Unix Utilities
 brew install fd bat ripgrep exa
