@@ -45,3 +45,6 @@ eval "$(/opt/homebrew/bin/starship init bash)"
 # homebrew
 export HOMEBREW_NO_ENV_HINTS=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
+. "$HOME/.cargo/env"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
