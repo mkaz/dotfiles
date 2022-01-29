@@ -12,6 +12,9 @@ mkdir ~/Downloads/
 
 ## Install homebrew
 
+# Basics
+brew install autojump bat exa fd jq ripgrep starship
+
 # Password store
 brew install pass
 ln -s ~/Documents/Sync/pass-store .password-store
@@ -35,10 +38,5 @@ brew install --cask homebrew/cask-fonts/font-hack
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-## New Unix Utilities
-brew install fd bat ripgrep exa
-
 # espanso
-
-
 
