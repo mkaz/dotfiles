@@ -12,6 +12,21 @@ matches:
   - trigger: ":em"
     replace: "—"
 
+  - trigger: ":half"
+    replace: "½"
+
+  - trigger: ":quarter"
+    replace: "¼"
+
+  - trigger: ":third"
+    replace: "⅓"
+
+  - trigger: ":threeq"
+    replace: "¾"
+
+  - trigger: ":deg"
+    replace: "°"
+
   # Dates
   - trigger: ":date"
     replace: "{{mydate}}"
