@@ -27,6 +27,9 @@ matches:
   - trigger: ":deg"
     replace: "°"
 
+  - trigger: ":riotmac"
+    replace: "A8:03:2A:3A:CE:C6"
+
   # Dates
   - trigger: ":date"
     replace: "{{mydate}}"
