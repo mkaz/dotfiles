@@ -1,6 +1,9 @@
 # mkaz bash init
 # vim: syntax=sh ts=4 sw=4 sts=4 sr et
 
+SYS=$(uname -s | awk '{print tolower($0)}')
+echo "SYS = ${SYS}"
+
 export EDITOR='nvim'
 export GPG_TTY=$(tty)
 
@@ -34,9 +37,9 @@ if [[ -e ~/.cargo/env ]]; then
     source ~/.cargo/env
 fi
 
-# run host specific profile
-if [[ -e ~/dotfiles/profile.$HOSTNAME ]]; then
-    source ~/dotfiles/profile.$HOSTNAME
+# run host system specific profile
+if [[ -e ~/dotfiles/profile.$SYS ]]; then
+    source ~/dotfiles/profile.$SYS
 fi
 
 # bash completions
