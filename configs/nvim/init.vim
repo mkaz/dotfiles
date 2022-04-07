@@ -25,7 +25,7 @@ Plug 'tommcdo/vim-lion'               " alignment motion
 Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
 Plug 'tpope/vim-surround'             " surround motion
-Plug 'vimwiki/vimwiki'                " vimwiki
+" Plug 'vimwiki/vimwiki'                " vimwiki
 call plug#end()
 
 " Settings
@@ -243,5 +243,6 @@ let g:goyo_width = 70
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'php', 'python' ]
 
 " Vim Wiki
-let g:vimwiki_list = [{'path': '~/Documents/Notes/', 'syntax': 'markdown'}]
-au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+" let g:vimwiki_list = [{'path': '~/Documents/Notes/', 'syntax': 'markdown'}]
+au FileType markdown setlocal shiftwidth=6 tabstop=6 noexpandtab
+
