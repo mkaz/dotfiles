@@ -2,6 +2,9 @@
 # Gimme some space
 add_newline = true
 
+[aws]
+disabled = true
+
 [cmd_duration]
 disabled = true
 
