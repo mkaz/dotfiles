@@ -19,7 +19,7 @@ sudo apt update && sudo apt upgrade
 sudo apt install -y git sudo zip curl wget neovim
 sudo apt install -y build-essential pwgen htop autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf figlet jq exa
+sudo apt install -y ripgrep fzf figlet jq exa bat
 
 # link up configs
 ln -s $HOME/dotfiles/configs/git/gitattributes $HOME/.gitattributes
