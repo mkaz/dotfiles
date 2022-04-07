@@ -1,0 +1,24 @@
+# macos / darwin profile init
+# vim: syntax=sh ts=4 sw=4 sts=4 sr et
+
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+# bash completions
+for file in /opt/homebrew/etc/profile.d/*
+do
+    source "$file"
+done
+
+# bash completions
+for file in /opt/homebrew/etc/bash_completion.d/*
+do
+    source "$file"
+done
+
+# homebrew
+export HOMEBREW_NO_ENV_HINTS=1
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# starship
+export STARSHIP_CONFIG=~/dotfiles/configs/starship/config.toml
+eval "$(/opt/homebrew/bin/starship init bash)"
