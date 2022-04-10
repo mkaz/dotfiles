@@ -9,10 +9,18 @@ export GPG_TTY=$(tty)
 PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
 
 # aliases
-alias cat='bat'
+function cat() {
+    if [ -x "$(command -v bat)" ]; then
+        bat $@
+    elif [ -x "$(command -v batcat)" ]; then
+        batcat $@
+    else
+        cat $@
+    fi
+}
+
 alias curl='curl --silent'
 alias grep='rg -i'
-alias less='bat'
 alias ls='exa --time-style long-iso -l -h --group-directories-first'
 alias ll='ls -a --git'
 alias o='open'
