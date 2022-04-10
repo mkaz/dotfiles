@@ -18,7 +18,7 @@ sudo apt update && sudo apt upgrade
 
 sudo apt install -y git sudo zip curl wget neovim
 sudo apt install -y build-essential pwgen htop autojump neofetch
-sudo apt install -y net-tools dnsutils autossh apt-transport-https
+sudo apt install -y ufw net-tools dnsutils autossh apt-transport-https
 sudo apt install -y ripgrep fzf figlet jq exa bat
 
 # link up configs
@@ -49,4 +49,12 @@ if [ ! -f "$HOME/bin/wp" ]; then
     cp wp-cli.phar $HOME/bin/wp
     cd
 fi
+
+sudo ufw allow ssh
+sudo ufw limit ssh
+sudo ufw allow 80           # http
+sudo ufw allow 8384         # syncthing
+sudo ufw allow 22000        # syncthing
+sudo ufw allow 21027/udp    # syncthing
+sudo ufw enable
 
