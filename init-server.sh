@@ -19,12 +19,9 @@ sudo apt update && apt upgrade
 cd ~/dotfiles/
 
 sudo apt install -y sudo zip curl wget ufw
-sudo apt install -y build-essential pwgen htop autojump neofetch
+sudo apt install -y htop autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf figlet exa fd-find bat
-
-# Starship 🚀
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+sudo apt install -y ripgrep fzf exa fd-find bat
 
 # LAMP
 echo "✔ Installing LAMP stack"
