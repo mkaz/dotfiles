@@ -13,7 +13,7 @@ mkdir ~/Downloads/
 ## Install homebrew
 
 # Basics
-brew install autojump bat exa fd jq ripgrep starship just
+brew install autojump bat exa fd jq just ripgrep sd starship
 
 # Password store
 brew install pass
