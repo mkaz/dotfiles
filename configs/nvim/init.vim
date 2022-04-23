@@ -8,31 +8,28 @@
 
 call plug#begin('~/.config/plugged')
 Plug 'airblade/vim-gitgutter'	      " git gutter
+Plug 'cocopon/iceberg.vim'			  " colors
 Plug 'cohama/agit.vim'                " browse git history
 Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
 Plug 'itchyny/lightline.vim'          " fancy status line
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'               " fuzzy search
-Plug 'junegunn/goyo.vim'              " writing
 Plug 'junegunn/vim-slash'             " search highlighting
 Plug 'maxmellon/vim-jsx-pretty'       " pretty jsx
-Plug 'mhartington/oceanic-next'       " colors
 Plug 'prettier/vim-prettier'
 Plug 'rhysd/git-messenger.vim'        " inline git blame
-Plug 'reedes/vim-wordy'               " grammar check
 Plug 'rust-lang/rust.vim'             " rusty!
 Plug 'tommcdo/vim-lion'               " alignment motion
 Plug 'tpope/vim-commentary'           " comment code
 Plug 'tpope/vim-markdown'             " markdown
 Plug 'tpope/vim-surround'             " surround motion
-" Plug 'vimwiki/vimwiki'                " vimwiki
 call plug#end()
 
 " Settings
 let mapleader=","
 
 " Colors
-colorscheme OceanicNext
+colorscheme Iceberg
 
 " Whitespace stuff
 set noexpandtab
@@ -69,7 +66,7 @@ set mouse=a           " enable mouse support
 noremap j gj
 noremap k gk
 
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " shhhh
 set novisualbell
@@ -196,10 +193,6 @@ inoremap <F2> :set wrap!<CR>
 " F3 to toggle whitespace
 noremap <F3> :set list!<CR>
 
-" Insert Date
-:nnoremap <F4> "=strftime("%A, %Y-%m-%d %I:%M%P ")<CR>P
-:inoremap <F4> <C-R>=strftime("%A, %Y-%m-%d %I:%M%P ")<CR>
-
 " F5 to toggle Spellcheck
 :noremap <F5> :setlocal spell! spelllang=en_us<CR>
 
@@ -216,9 +209,6 @@ noremap <Leader>o ci(<space><space><Esc>hp
 nnoremap <Leader>re :edit $MYVIMRC<CR>
 nnoremap <Leader>rs :source $MYVIMRC<CR>
 
-" Run Hastie
-noremap <Leader>h :terminal hastie<CR>
-
 " :Wrap command
 command! -nargs=* Wrap set wrap linebreak nolist
 
@@ -226,23 +216,14 @@ command! Vmake silent w | silent make | unsilent redraw! | cwindow
 nnoremap <Leader>m :Vmake<CR>
 
 "VimDo
-nnoremap <Leader>td :edit $HOME/Documents/Notes/worklog/worklog-2021.md<CR>
-
-
+nnoremap <Leader>td :edit $HOME/Documents/Notes/worklog/worklog-2022.md<CR>
+nnoremap <Leader>x ^f[lrx
 
 " Plugin Settings
 
 " Lightline
-let g:lightline = { 'colorscheme': 'oceanicnext', 'active' : { 'left' : [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified', ] ], 'right' : [ [ 'lineinfo' ], [ 'filetype' ], [ 'wordcount' ], ] }, 'component': { 'buffernum': '%n' }, 'component_function': { 'wordcount': 'WordCount' }, }
-
-" Goyo
-noremap <F8> :Goyo<CR>
-let g:goyo_width = 70
+let g:lightline = { 'colorscheme': 'iceberg', 'active' : { 'left' : [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified', ] ], 'right' : [ [ 'lineinfo' ], [ 'filetype' ], [ 'wordcount' ], ] }, 'component': { 'buffernum': '%n' }, 'component_function': { 'wordcount': 'WordCount' }, }
 
 " Markdown
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'php', 'python' ]
-
-" Vim Wiki
-" let g:vimwiki_list = [{'path': '~/Documents/Notes/', 'syntax': 'markdown'}]
-au FileType markdown setlocal shiftwidth=6 tabstop=6 noexpandtab
 
