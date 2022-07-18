@@ -1,229 +1,148 @@
-" ----------------------------------------------------------------------------
-" init.vim
-" From: https://github.com/mkaz/dotfiles
-" ----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+-- init.vim
+-- From: https://github.com/mkaz/dotfiles
+-- ----------------------------------------------------------------------------
 
-" use vim-plug to manage plugins
-" See: https://github.com/junegunn/vim-plug
+-- Use vim-plug to manage plugins
+-- See: https://github.com/junegunn/vim-plug
 
-call plug#begin('~/.config/plugged')
-Plug 'airblade/vim-gitgutter'	      " git gutter
-Plug 'cocopon/iceberg.vim'			  " colors
-Plug 'cohama/agit.vim'                " browse git history
-Plug 'editorconfig/editorconfig-vim'  " support editorconfig settings
-Plug 'itchyny/lightline.vim'          " fancy status line
-Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
-Plug 'junegunn/fzf.vim'               " fuzzy search
-Plug 'junegunn/vim-slash'             " search highlighting
-Plug 'maxmellon/vim-jsx-pretty'       " pretty jsx
+local Plug = vim.fn['plug#']
+vim.call('plug#begin' ,'~/.config/plugged')
+Plug 'cloudhead/neovim-fuzzy'          -- fuzzy finder via fzy
+Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
+Plug 'edeneast/nightfox.nvim'          -- colorscheme
+Plug 'junegunn/vim-slash'              -- search highlighting
+Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
+Plug 'mfussenegger/nvim-lint'          -- lint / vale
+Plug 'nvim-lualine/lualine.nvim'       -- Statusline
 Plug 'prettier/vim-prettier'
-Plug 'rhysd/git-messenger.vim'        " inline git blame
-Plug 'rust-lang/rust.vim'             " rusty!
-Plug 'tommcdo/vim-lion'               " alignment motion
-Plug 'tpope/vim-commentary'           " comment code
-Plug 'tpope/vim-markdown'             " markdown
-Plug 'tpope/vim-surround'             " surround motion
-call plug#end()
+Plug 'rust-lang/rust.vim'              -- rusty!
+Plug 'tommcdo/vim-lion'                -- alignment motion
+Plug 'tpope/vim-commentary'            -- comment code
+Plug 'tpope/vim-markdown'              -- markdown
+Plug 'tpope/vim-surround'              -- surround motion
+vim.call('plug#end')
 
-" Settings
-let mapleader=","
+-- Settings
+vim.cmd('colorscheme nightfox')
 
-" Colors
-colorscheme Iceberg
+vim.opt.tabstop     = 4
+vim.opt.shiftwidth  = 4
+vim.opt.fileformat  = 'unix'
+vim.opt.fileformats = 'unix'
+vim.opt.wrap        = false
+vim.opt.linebreak   = true
+vim.opt.number      = true    -- show line numbers
+vim.opt.showmode    = false
+vim.opt.scrolloff   = 2
+vim.opt.backup      = false   -- no backups
+vim.opt.mouse       = 'a'     -- enable mouse support
+vim.opt.visualbell  = false   -- shhhh
+vim.opt.errorbells  = false   -- shhhh
 
-" Whitespace stuff
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set encoding=utf-8
-set fileformat=unix
-set fileformats=unix
+-- Searching
+vim.opt.ignorecase = true
+vim.opt.smartcase  = true
 
-" default wrap lines, break at word
-set wrap!
-set linebreak
-
-" hidden characters
-set listchars=tab:▸\ ,eol:¬
-
-" Display
-set number            " show line numbers
-set noshowmode        " hide mode, its in status
-
-" Operation
-set scrolloff=2       " scroll 2 lines top/bottom
-set hidden            " allows to switch to/from unsaved buffers
-set nobackup
-
-" Disabled for Security
-" See: https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
-set modeline          " use modeline override
-set modelines=2       " check last two lines
-set mouse=a           " enable mouse support
-
-" move updown by visual (wrapped) lines
-noremap j gj
-noremap k gk
-
-let g:python3_host_prog = '/opt/homebrew/bin/python3'
-
-" shhhh
-set novisualbell
-set noerrorbells
-
-" Folding
-set foldenable               " enable folding
-set foldlevelstart=10        " start with expanded
-set foldnestmax=10           " max number of nested folds
-
-" space open/close folds
-nnoremap <space> za
-
-" Searching
-set ignorecase
-set smartcase
-
-set undolevels=1000
-
-set wildmode=longest,list,full
-set wildignore+=.hg,.git,.svn         "version control
-set wildignore+=*.rbc,*.class,*.pyc   "compiled formats
-set wildignore+=*.DS_Store            "OSX files
-set wildignore+=*__pycache__
-
-" fzf and ripgrep
-nnoremap <Leader>p :GFiles<CR>
-nnoremap <Leader>, :Buffers<CR>
-noremap <Leader>f :Rg<space>
-
-" File Specific
-
-augroup configgroup
-
-    autocmd!
-
-    " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-    autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-
-    " Python File Types (use spaces)
-    autocmd FileType python map <Leader>r :w<CR>:!python %<CR>
-
-    " PHP File Types (WordPress, use tabs)
-    autocmd FileType php set noexpandtab
-
-    " golang
-    autocmd BufRead,BufNewFile *.go set filetype=go makeprg=go\ build
-    autocmd FileType go nmap <Leader>r <Plug>(go-run)
-    autocmd FileType go nmap <Leader>b :make<CR>
-    autocmd FileType go nmap <Leader>t :terminal go test<CR>
-    let g:go_fmt_command = "goimports"
-
-	" rust
-	autocmd FileType rust nmap <Leader>b :terminal cargo run<CR>
-	autocmd FileType rust nmap <Leader>t :call RunRustTest() <CR>
-	let g:rustfmt_autosave = 1
-
-	" Run Prettier on save
-	autocmd BufWritePre *.js Prettier
-
-    " Templates
-    autocmd BufRead,BufNewFile *.{tpl,eco} set ft=html
-
-    " Remember last location in file
-    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
-
-    " Default wrap markdown
-    autocmd BufRead,BufNewFile *.md :Wrap
-
-	" Remove trailing space on write
-	autocmd BufWritePre * %s/\s\+$//e
-
-augroup END
-
-function! RunRustTest()
-	set splitbelow
-	exec winheight(0)/2."split" | terminal cargo test "%:t:r"
-endfunction
-
-" Key Bindings
-
-" Force close all the things
-nnoremap ZQ :qa!<CR>
-
-" :w!! to save with sudo
-ca w!! w !sudo tee >/dev/null "%"
-
-" Unhighlight Search using ,SPC
-" vim-slash helps by unhighlighting on move
-noremap <Leader><Space> :nohlsearch<CR>
-
-" Toggle comments using vim-commentary
-map <Leader>/ gcc
+vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
 
 
-" Buffer Navigation
-nnoremap <Leader>n :enew<CR>  " new buffer
-nnoremap <Tab> :bnext<CR>     " next buffer
-nnoremap <S-Tab> :bprev<CR>   " previous buffer
-nnoremap <Leader>3 :b#<CR>    " recent buffer
-nnoremap <Leader>a :only<CR>  " only buffer
-nnoremap Q :bd!<CR>           " close buffer
+-- KEYBINDINGS
+-- =========================================================
 
-" Bubble single lines
-nnoremap <C-Up> :m .-2<CR>
-nnoremap <C-Down> :m  .+1<CR>
+vim.g.mapleader = ','
 
-" Bubble multiple lines
-vnoremap <silent> <C-Up>  @='"zxk"zP`[V`]'<CR>
-vnoremap <silent> <C-Down>  @='"zx"zp`[V`]'<CR>
+-- keymap options
+local opts = { noremap = true, silent = true, }
+local shh  = { silent = true }
 
-" Surround with Quote uses vim-surround
-nmap <Leader>' ysiw'
-nmap <Leader>" ysiw"
+local keymap = vim.api.nvim_set_keymap
 
-" Map F1 to ESC
-noremap <F1> <Esc>
-inoremap <F1> <Esc>
+-- Edit config file
+keymap('n', '<Leader>re', ':edit $MYVIMRC<CR>', opts)
+keymap('n', '<Leader>rs', ':source $MYVIMRC<CR>', opts)
 
-" F2 to toggle wrap
-noremap <F2> :set wrap!<CR>
-inoremap <F2> :set wrap!<CR>
+-- move updown by visual (wrapped) lines
+keymap('n', 'j', 'gj', opts)  -- move down wrapped lines visually
+keymap('n', 'k', 'gk', opts)  -- move up wrapped lines visually
 
-" F3 to toggle whitespace
-noremap <F3> :set list!<CR>
+keymap('n', '<Leader>/', 'gcc', shh) -- comment line using vim commentary
 
-" F5 to toggle Spellcheck
-:noremap <F5> :setlocal spell! spelllang=en_us<CR>
+-- Surround with Quote uses vim-surround
+keymap('n', "<Leader>'", "ysiw'", shh)
+keymap('n', '<Leader>"', 'ysiw"', shh)
 
-" Add semi colon at end of line
-noremap <Leader>; g_a;<Esc>
+-- Fuzzy finder
+keymap('n', '<Leader>p', ':FuzzyOpen<CR>', opts)
 
-" Use K to 'krack' a line, opposite of J
-nnoremap K i<CR><Esc>k$
+-- Unhighlight Search using ,SPC
+-- vim-slash helps by unhighlighting on move
+keymap('n', '<Leader><Space>', ':nohlsearch<CR>', opts)
 
-" Add Spaces inside parentheses, WordPress Style
-noremap <Leader>o ci(<space><space><Esc>hp
+-- Add semi colon at end of line
+keymap('n', '<Leader>;', 'g_a;<Esc>', opts)
 
-" Edit config file
-nnoremap <Leader>re :edit $MYVIMRC<CR>
-nnoremap <Leader>rs :source $MYVIMRC<CR>
+-- Bubble single lines
+keymap('n', '<M-Up>',   ':m .-2<CR>', opts)
+keymap('n', '<M-Down>', ':m  .+1<CR>', opts)
 
-" :Wrap command
-command! -nargs=* Wrap set wrap linebreak nolist
+-- Bubble multiple lines
+keymap('v', '<M-Up>',  '@=\'"zxk"zP`[V`]\'<CR>', opts)
+keymap('v', '<M-Down>', '@=\'"zx"zp`[V`]\'<CR>', opts)
 
-command! Vmake silent w | silent make | unsilent redraw! | cwindow
-nnoremap <Leader>m :Vmake<CR>
+-- Buffer Navigation
+keymap('n', '<Leader>n', ':enew<CR>',  opts)  -- new buffer
+keymap('n', '<Tab>',     ':bnext<CR>', opts)  -- next buffer
+keymap('n', '<S-Tab>',   ':bprev<CR>', opts)  -- previous buffer
+keymap('n', '<Leader>3', ':b#<CR>',    opts)  -- recent buffer
+keymap('n', '<Leader>a', ':only<CR>',  opts)  -- only buffer
+keymap('n', 'Q',         ':bd!<CR>',   opts)  -- close buffer
 
-"VimDo
-nnoremap <Leader>td :edit $HOME/Documents/Notes/worklog/worklog-2022.md<CR>
-nnoremap <Leader>x ^f[lrx
+-- =========================================================
+-- File Formats
+-- =========================================================
 
-" Plugin Settings
+-- Run Prettier on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+	pattern = '*.js',
+	command = 'Prettier',
+})
 
-" Lightline
-let g:lightline = { 'colorscheme': 'iceberg', 'active' : { 'left' : [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified', ] ], 'right' : [ [ 'lineinfo' ], [ 'filetype' ], [ 'wordcount' ], ] }, 'component': { 'buffernum': '%n' }, 'component_function': { 'wordcount': 'WordCount' }, }
+-- Markdown
+vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'php', 'python'}
 
-" Markdown
-let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'php', 'python' ]
+-- Rusty!
+vim.g.rustfmt_autosave = 1
+
+-- :w!! to save with sudo
+vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
+
+
+-- =========================================================
+-- Plugin Settings
+-- =========================================================
+
+-- Lualine
+require('lualine').setup {
+	options = { theme = 'onelight' },
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'branch'},
+		lualine_c = {'filename'},
+		lualine_x = {'filetype'},
+		lualine_y = {},
+		lualine_z = {'location'}
+	},
+}
+
+-- Lint
+require('lint').linters_by_ft = {
+	markdown = {'vale',}
+}
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	callback = function()
+		require("lint").try_lint()
+	end,
+})
 
