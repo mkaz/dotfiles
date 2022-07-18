@@ -61,8 +61,8 @@ matches:
   - trigger: ":lorem"
     replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper."
 
-  - trigger: ":yteuler"
-    replace: "A screencast series learning Rust by solving Project Euler problems.\n\nFor more Rust, see my notes and examples at: https://mkaz.blog/working-with-rust"
+  - trigger: ":codelorem"
+    replace: "// Rusty!\nfn main() {\n println!(\"Hello, world!\");\n }\n"
 
   - trigger: ":tweuler"
     replace: "Just released Euler #6 in Rust, the next in my screencast series learning Rust going through Project Euler problems."
