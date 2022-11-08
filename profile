@@ -1,19 +1,16 @@
 # mkaz bash init
 # vim: syntax=sh ts=4 sw=4 sts=4 sr et
-
 SYS=$(uname -s | awk '{print tolower($0)}')
-
 export EDITOR='nvim'
 export GPG_TTY=$(tty)
-
 PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
 
 # aliases
 function cat() {
     if [ -x "$(command -v bat)" ]; then
-        bat $@
+        bat --theme TwoDark $@
     elif [ -x "$(command -v batcat)" ]; then
-        batcat $@
+        batcat --theme TwoDark $@
     else
         cat $@
     fi
@@ -27,7 +24,6 @@ alias o='open'
 alias rg='rg -i'
 alias sc='sc-im'
 alias wget='wget -q'
-alias vihosts='sudo nvim /etc/hosts'
 alias vim='nvim'
 
 # moving around
@@ -50,4 +46,3 @@ fi
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-
