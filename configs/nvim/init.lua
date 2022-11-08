@@ -13,7 +13,6 @@ Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
 Plug 'edeneast/nightfox.nvim'          -- colorscheme
 Plug 'junegunn/vim-slash'              -- search highlighting
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
-Plug 'mfussenegger/nvim-lint'          -- lint / vale
 Plug 'nvim-lualine/lualine.nvim'       -- Statusline
 Plug 'prettier/vim-prettier'
 Plug 'rust-lang/rust.vim'              -- rusty!
@@ -79,6 +78,10 @@ keymap('n', '<Leader>p', ':FuzzyOpen<CR>', opts)
 -- vim-slash helps by unhighlighting on move
 keymap('n', '<Leader><Space>', ':nohlsearch<CR>', opts)
 
+-- F3 toggle wrap
+keymap('n', '<F2>', ':set wrap!<CR>', opts)
+keymap('i', '<F2>', ':set wrap!<CR>', opts)
+
 -- Add semi colon at end of line
 keymap('n', '<Leader>;', 'g_a;<Esc>', opts)
 
@@ -109,6 +112,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 -- Markdown
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+	pattern = '*.md',
+	callback = function()
+		vim.opt.wrap = true
+		vim.opt.linebreak = true
+	end
+})
+
 vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'php', 'python'}
 
 -- Rusty!
@@ -121,6 +132,7 @@ vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
 -- =========================================================
 -- Plugin Settings
 -- =========================================================
+
 
 -- Lualine
 require('lualine').setup {
@@ -135,14 +147,8 @@ require('lualine').setup {
 	},
 }
 
--- Lint
-require('lint').linters_by_ft = {
-	markdown = {'vale',}
-}
+-- Prettier
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	callback = function()
-		require("lint").try_lint()
-	end,
-})
+vim.g['prettier#autoformat'] = 1
+vim.g['prettier#autoformat_require_pragma'] = 0
 
