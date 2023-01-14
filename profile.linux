@@ -1,0 +1,8 @@
+# mkaz bash init
+# vim: syntax=sh ts=4 sw=4 sts=4 sr et
+
+alias apt='sudo apt'
+
+# starship
+export STARSHIP_CONFIG=~/dotfiles/configs/starship/config.toml
+eval "$(/usr/local/bin/starship init bash)"

@@ -37,14 +37,14 @@ ln -s $HOME/dotfiles/extras/nvim $HOME/.config/nvim
 # gui: photo and video
 read -p "Install Photo & Video? (N/y) " media
 if [ "$media" != "${media#[Yy]}" ]; then
-    sudo apt install -y imagemagick pngcrush pandoc gifsicle obs-studio
-    sudo apt install -y rapid-photo-downloader geeqie peek gpick fonts-noto-color-emoji
+    sudo apt install -y imagemagick pngcrush pandoc gifsicle
+    sudo apt install -y rapid-photo-downloader geeqie peek gpick 
 fi
 
 # gui: fonts
 read -p "Install Fonts? (N/y) " fonts
 if [ "$fonts" != "${fonts#[Yy]}" ]; then
-	sudo apt install -y fonts-hack fonts-ibm-plex fonts-noto fonts-roboto ttf-mscorefonts-installer
+	sudo apt install -y fonts-hack fonts-ibm-plex fonts-noto fonts-roboto fonts-noto-color-emoji
 fi
 
 #----------------------------------------
@@ -132,13 +132,4 @@ StartupWMClass=obsidian
 MimeType=x-scheme-handler/obsidian;
 _EOL
 
-# Signal
-wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
-cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
-echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-	  sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo apt update && sudo apt install signal-desktop
 
-# Zoom
-wget https://zoom.us/client/latest/zoom_amd64.deb
-sudo dpkg -i zoom_amd64.deb
