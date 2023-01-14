@@ -4,6 +4,14 @@
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias vihosts='sudo nvim /etc/hosts'
 alias vaconf='nvim /opt/homebrew/etc/httpd/httpd.conf'
+alias mysql='mysql -u root'
+
+alias pte='open -a "Plain Text Editor"'
+
+# aliases
+function apache() {
+    brew services $@ httpd
+}
 
 # bash completions
 for file in /opt/homebrew/etc/profile.d/*
