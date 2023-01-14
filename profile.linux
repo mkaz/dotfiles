@@ -3,6 +3,8 @@
 
 alias apt='sudo apt'
 
+source /usr/share/autojump/autojump.sh
+
 # starship
 export STARSHIP_CONFIG=~/dotfiles/configs/starship/config.toml
 eval "$(/usr/local/bin/starship init bash)"
