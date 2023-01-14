@@ -23,7 +23,8 @@ cd ~/dotfiles/
 sudo apt install -y git subversion sudo zip curl wget ufw neovim neovim-qt
 sudo apt install -y build-essential stow pwgen htop pass autojump neofetch
 sudo apt install -y net-tools dnsutils autossh apt-transport-https syncthing
-sudo apt install -y fzf jq figlet gnome-tweaks gnome-shell-pomodoro gnome-dictionary flameshot
+sudo apt install -y gnome-tweaks gnome-shell-pomodoro gnome-dictionary
+sudo apt install -y bat exa fd fzf jq ripgrep 
 
 # link up configs
 ln -s $HOME/dotfiles/configs/git/gitattributes $HOME/.gitattributes
@@ -37,7 +38,7 @@ ln -s $HOME/dotfiles/configs/nvim $HOME/.config/nvim
 # gui: photo and video
 read -p "Install Photo & Video? (N/y) " media
 if [ "$media" != "${media#[Yy]}" ]; then
-    sudo apt install -y imagemagick pngcrush pandoc gifsicle
+    sudo apt install -y imagemagick pngcrush pandoc gifsicle flameshot
     sudo apt install -y rapid-photo-downloader geeqie peek gpick 
 fi
 
@@ -97,14 +98,6 @@ cd $HOME/Downloads
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
-## install fd
-wget https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
-sudo apt install -y ./fd_8.2.1_amd64.deb
-
-# Add bat and ripgrep
-# Necessary for 20.04 - can be simplified to normal bat/ripgrep on upgrade
-#sudo apt install -o Dpkg::Options::="--force-overwrite" bat ripgrep
-
 ## install exa
 wget https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
 unzip exa-linux-x86_64-0.9.0.zip
@@ -113,23 +106,5 @@ mv exa-linux-x86_64 ~/bin/exa
 # espanso
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install -y ./espanso-debian-amd64.deb
-
-# Obsidian
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.12/Obsidian-0.12.12.AppImage
-mv Obsidian-0.12.12.AppImage $HOME/bin/Obsidian.desktop
-curl -L -o obsidian.png https://cdn.discordapp.com/icons/686053708261228577/1361e62fed2fee55c7885103c864e2a8.png
-sudo cp obsidian.png /usr/share/pixmaps/
-cat << _EOL > $HOME/.local/share/applications/Obsidian.desktop
-[Desktop Entry]
-Name=Obsidian
-Comment=Markdown Notetaking App
-Terminal=false
-GenericName=Text Editor
-Type=Application
-Exec=/home/matthias/AppImages/Obsidian-0.10.11.AppImage %u
-Icon=obsidian
-StartupWMClass=obsidian
-MimeType=x-scheme-handler/obsidian;
-_EOL
 
 
