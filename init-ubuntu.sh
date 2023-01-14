@@ -32,7 +32,7 @@ ln -s $HOME/dotfiles/configs/git/gitignore $HOME/.gitignore
 
 # symlink config
 mkdir -p $HOME/.config
-ln -s $HOME/dotfiles/extras/nvim $HOME/.config/nvim
+ln -s $HOME/dotfiles/configs/nvim $HOME/.config/nvim
 
 # gui: photo and video
 read -p "Install Photo & Video? (N/y) " media
