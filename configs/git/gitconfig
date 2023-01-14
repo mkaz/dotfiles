@@ -37,8 +37,8 @@
 [init]
 	defaultBranch = trunk
 
-#[commit]
-#gpgSign = true
+[commit]
+	gpgSign = true
 
 [tag]
 	gpgSign = true
