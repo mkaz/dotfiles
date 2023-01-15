@@ -2,6 +2,8 @@
 # vim: syntax=sh ts=4 sw=4 sts=4 sr et
 
 alias apt='sudo apt'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 source /usr/share/autojump/autojump.sh
 
