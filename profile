@@ -50,6 +50,6 @@ if [[ -e ~/dotfiles/profile.$SYS ]]; then
     source ~/dotfiles/profile.$SYS
 fi
 
+. "$HOME/.cargo/env"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-. "$HOME/.cargo/env"
