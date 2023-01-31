@@ -1,85 +1,220 @@
-/* Minimalist Hacker News based off: https://github.com/robmcguinness/hackernews-userstyle */
+/* ==UserStyle==
+@name           Hacked News
+@namespace      mkaz
+@version        v2
+==/UserStyle== */
+@-moz-document url-prefix("https://news.ycombinator.com/") {
+
+/* Header System Fonts */
+input, textarea, .pagetop {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Main Article Fonts */
+body, td, table {
+    font-family: "IBM Plex Serif", serif;
+    font-weight: 300;
+    font-size: 14px;
+}
 
 body {
-  margin: 32px;
-  font-size: 18px;
-  background: white; 
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+    
+.title,
+.sitebit,
+.subtext {
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    position: relative;
 }
 
-tr.spacer { height: 16px !important; }
-
-/* Top Table */
-body > center > table > tbody > tr:first-child > td > table td {
-    padding-bottom: 8px;
-    border-bottom: 2px solid #FF6600;
+.pagetop,
+.pagetop a {
+    color: rgba(0, 0, 0, 0.5);
 }
 
-.pagetop {
-  font-family: "Open Sans", "Trebuchet Ms", Helvetica, sans-serif;
+.spacer,
+span.pagetop b,
+.brandname,
+.hnname,
+.rank,
+.votearrow,
+#hnmain > tbody > tr:last-child img,
+#hnmain > tbody > tr > td[bgcolor] > table tbody tr td:first-child a img {
+    display: none !important;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#hnmain {
+    max-width: 800px;
+}
+
+#hnmain,
+#hnmain > tbody > tr > td,
+#hnmain > tbody > tr:last-child table td {
+    background: transparent;
+}
+
+#hnmain > tbody > tr > td[bgcolor] > table {
+  padding: 0 0 20px 0 !important;
+}
+
+
+#hnmain > tbody > tr > td[bgcolor] > table tbody tr td:first-child a {
+  background: #F06D3C;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  width: 50px;
+  display: block;
+  text-align: center;
+}
+
+#hnmain > tbody > tr > td[bgcolor] > table tbody tr td:first-child a:after {
+    content: "HN";
+    font-family: "Arial Black", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#hnmain > tbody > tr > td[bgcolor] > table tbody tr td:nth-child(2) .pagetop {
+  color: #fafafa;
+  padding-left: 10px;
   font-size: 14px;
 }
 
-.pagetop a {
-  color: #696969 !important;
+#hnmain > tbody > tr > td[bgcolor] > table tbody tr td .pagetop {
+  font-size: 14px;
 }
 
-.pagetop a:visited {
-  color: #7E7E7E;
+#hnmain > tbody > tr > td[bgcolor] > table tbody tr td .pagetop a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 2px;
 }
 
-.pagetop b.hnname {
-    font-size: 18px;
+.itemlist {
+  width: 100%;
+}
+
+.athing + tr .subtext {
+  position: relative;
+}
+
+.athing + tr .subtext {
+  padding-bottom: 8px;
+}
+
+.athing td {
+  padding-top: 8px;
+}
+
+.athing .title:first-child {
+  padding-left: 20px;
+}
+
+.athing .title a:link,
+.athing .title a:visited {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+}
+
+/* Website URL */
+.athing .title .comhead,
+.athing .title .comhead a:link {
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.athing .title .comhead {
     margin-left: 4px;
-    margin-right: 36px;
 }
 
-.comment {
-    font-size: 16px;
-    font-family: "Cambria";
+.athing .title .comhead a:link {
+    padding: 0 2px;
+}
+    
+.subtext {
+  color: rgba(0, 0, 0, 0.5);
 }
 
-a {
-  font-weight: normal;
+.subtext a:link,
+.subtext a:visited {
+  color: rgba(0, 0, 0, 0.5) !important;
 }
 
-a:link {
-  color: #555;
+.subtext a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 2px;
 }
 
-a:hover {
-  text-decoration: underline;
+.comment-tree .default .comhead {
+  font-size: 14px !important;
+  color: rgba(0,0,0,0.5);
 }
 
-table {
-    background-color: white;
+.comment-tree .comment {
+  font-size: 14px !important;
+  color: rgba(0,0,0,0.5);
+  line-height: 1.42em;
 }
 
-table#hnmain {
-    max-width: 920px;
-    margin: 0 auto;
+#hnmain table {
+  width: 100%;
 }
 
-table.itemlist {
-  margin: 20px 0;
+#hnmain form textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px;
+  outline: none;
 }
 
-.title {
-  font-family: "Cambria";
-  font-size: 18px;
-  color: #696969;
+#hnmain form input[type=submit]{
+  border: solid 1px #F06D3C;
+  height: 32px;
+  background: transparent;
+  border-radius: 32px;
+  padding: 0 12px;
+  color: #F06D3C;
+  cursor: pointer;
 }
 
-.title > a {
-  font-weight: normal;
-  color: #D43900;
+.itemlist tr:last-child .title {
+  padding: 10px 0;
 }
 
-.title > a:visited {
-  color: #7E7E7E;
-  font-weight: normal !important;
+.itemlist tr:last-child .title a {
+  border: solid 1px #F06D3C;
+  height: 32px;
+  line-height: 32px;
+  background: transparent;
+  border-radius: 32px;
+  padding: 0 12px;
+  color: #F06D3C;
+  display: inline-block;
 }
 
+td.ind {
+  width: 0px;
+}
 
-.votearrow { display: none; }
+td.votelinks {
+  width: 0px;
+}
 
-.rank { margin-right: 8px;
+}
