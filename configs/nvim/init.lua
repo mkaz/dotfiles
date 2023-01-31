@@ -54,7 +54,6 @@ vim.g.mapleader = ','
 -- keymap options
 local opts = { noremap = true, silent = true, }
 local shh  = { silent = true }
-
 local keymap = vim.api.nvim_set_keymap
 
 -- Edit config file
@@ -65,7 +64,8 @@ keymap('n', '<Leader>rs', ':source $MYVIMRC<CR>', opts)
 keymap('n', 'j', 'gj', opts)  -- move down wrapped lines visually
 keymap('n', 'k', 'gk', opts)  -- move up wrapped lines visually
 
-keymap('n', '<Leader>/', 'gcc', shh) -- comment line using vim commentary
+keymap('n', '<Leader>/', ':Commentary<CR>', shh) -- comment line using vim commentary
+keymap('v', '<Leader>/', ':Commentary<CR>', shh) -- comment line using vim commentary
 
 -- Surround with Quote uses vim-surround
 keymap('n', "<Leader>'", "ysiw'", shh)
