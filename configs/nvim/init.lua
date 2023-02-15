@@ -21,8 +21,8 @@ Plug 'tommcdo/vim-lion'                -- alignment motion
 Plug 'tpope/vim-commentary'            -- comment code
 Plug 'tpope/vim-markdown'              -- markdown
 Plug 'tpope/vim-surround'              -- surround motion
-Plug 'xolox/vim-colorscheme-switcher'  -- utility for switch colorscheme with F8
-Plug 'xolox/vim-misc'
+-- Plug 'xolox/vim-colorscheme-switcher'  -- utility for switch colorscheme with F8
+-- Plug 'xolox/vim-misc'
 vim.call('plug#end')
 
 -- Settings
@@ -39,10 +39,11 @@ vim.opt.number      = true    -- show line numbers
 vim.opt.showmode    = false
 vim.opt.scrolloff   = 2
 vim.opt.backup      = false   -- no backups
-vim.opt.mouse       = 'a'     -- enable mouse support
+vim.opt.mouse       = 'vi'    -- enable mouse support
 vim.opt.visualbell  = false   -- shhhh
 vim.opt.errorbells  = false   -- shhhh
 vim.opt.termguicolors = true
+vim.opt.foldenable = false
 
 -- Searching
 vim.opt.ignorecase = true
