@@ -16,8 +16,7 @@ Plug 'junegunn/vim-slash'              -- search highlighting
 Plug 'luukvbaal/nnn.nvim'
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
 Plug 'nvim-lualine/lualine.nvim'       -- Statusline
-Plug 'prettier/vim-prettier'
-Plug 'rust-lang/rust.vim'              -- rusty!
+Plug 'psf/black'
 Plug 'tommcdo/vim-lion'                -- alignment motion
 Plug 'tpope/vim-commentary'            -- comment code
 Plug 'tpope/vim-markdown'              -- markdown
@@ -112,15 +111,12 @@ keymap('n', '<Leader>3', ':b#<CR>',    opts)  -- recent buffer
 keymap('n', '<Leader>a', ':only<CR>',  opts)  -- only buffer
 keymap('n', 'Q',         ':bd!<CR>',   opts)  -- close buffer
 
+-- :w!! to save with sudo
+vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
+
 -- =========================================================
 -- File Formats
 -- =========================================================
-
--- Run Prettier on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = '*.js',
-    command = 'Prettier',
-})
 
 -- Markdown
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
@@ -133,11 +129,12 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
 
 vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'php', 'python'}
 
--- Rusty!
-vim.g.rustfmt_autosave = 1
+-- Python
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
+    pattern = '*.py',
+    command = "Black"
+})
 
--- :w!! to save with sudo
-vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
 
 
 -- =========================================================
