@@ -9,3 +9,4 @@ __pycache__
 .netrwhist
 .vercel
 .env.local
+tasks.db
