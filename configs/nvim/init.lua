@@ -13,6 +13,7 @@ Plug 'cloudhead/neovim-fuzzy'          -- fuzzy finder via fzy
 Plug 'dcampos/nvim-snippy'             -- snippets
 Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
 Plug 'junegunn/vim-slash'              -- search highlighting
+Plug 'luukvbaal/nnn.nvim'
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
 Plug 'nvim-lualine/lualine.nvim'       -- Statusline
 Plug 'prettier/vim-prettier'
@@ -81,13 +82,16 @@ keymap('n', '<Leader>"', 'ysiw"', shh)
 -- Fuzzy finder
 keymap('n', '<Leader>p', ':FuzzyOpen<CR>', opts)
 
+-- Telescope file
+keymap('n', '<F2>', ":NnnExplorer<CR>", opts)
+
 -- Unhighlight Search using ,SPC
 -- vim-slash helps by unhighlighting on move
 keymap('n', '<Leader><Space>', ':nohlsearch<CR>', opts)
 
 -- F3 toggle wrap
-keymap('n', '<F2>', ':set wrap!<CR>', opts)
-keymap('i', '<F2>', ':set wrap!<CR>', opts)
+keymap('n', '<F3>', ':set wrap!<CR>', opts)
+keymap('i', '<F3>', ':set wrap!<CR>', opts)
 
 -- Add semi colon at end of line
 keymap('n', '<Leader>;', 'g_a;<Esc>', opts)
@@ -166,4 +170,7 @@ require('snippy').setup({
         },
     },
 })
+
+-- NNN
+require("nnn").setup()
 
