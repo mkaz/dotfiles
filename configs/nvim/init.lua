@@ -8,9 +8,10 @@
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin' ,'~/.config/plugged')
+Plug 'bluz71/vim-nightfly-colors'
 Plug 'cloudhead/neovim-fuzzy'          -- fuzzy finder via fzy
+Plug 'dcampos/nvim-snippy'             -- snippets
 Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
-Plug 'edeneast/nightfox.nvim'          -- colorscheme
 Plug 'junegunn/vim-slash'              -- search highlighting
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
 Plug 'nvim-lualine/lualine.nvim'       -- Statusline
@@ -20,13 +21,16 @@ Plug 'tommcdo/vim-lion'                -- alignment motion
 Plug 'tpope/vim-commentary'            -- comment code
 Plug 'tpope/vim-markdown'              -- markdown
 Plug 'tpope/vim-surround'              -- surround motion
+Plug 'xolox/vim-colorscheme-switcher'  -- utility for switch colorscheme with F8
+Plug 'xolox/vim-misc'
 vim.call('plug#end')
 
 -- Settings
-vim.cmd('colorscheme nightfox')
+vim.cmd('colorscheme nightfly')
 
 vim.opt.tabstop     = 4
 vim.opt.shiftwidth  = 4
+vim.opt.expandtab   = true
 vim.opt.fileformat  = 'unix'
 vim.opt.fileformats = 'unix'
 vim.opt.wrap        = false
@@ -38,10 +42,13 @@ vim.opt.backup      = false   -- no backups
 vim.opt.mouse       = 'a'     -- enable mouse support
 vim.opt.visualbell  = false   -- shhhh
 vim.opt.errorbells  = false   -- shhhh
+vim.opt.termguicolors = true
 
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase  = true
+
+vim.opt.listchars  = 'tab:▸-,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»'
 
 vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
 
@@ -107,17 +114,17 @@ keymap('n', 'Q',         ':bd!<CR>',   opts)  -- close buffer
 
 -- Run Prettier on save
 vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = '*.js',
-	command = 'Prettier',
+    pattern = '*.js',
+    command = 'Prettier',
 })
 
 -- Markdown
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-	pattern = '*.md',
-	callback = function()
-		vim.opt.wrap = true
-		vim.opt.linebreak = true
-	end
+    pattern = '*.md',
+    callback = function()
+    vim.opt.wrap = true
+    vim.opt.linebreak = true
+    end
 })
 
 vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'php', 'python'}
@@ -136,19 +143,27 @@ vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
 
 -- Lualine
 require('lualine').setup {
-	options = { theme = 'onelight' },
-	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'branch'},
-		lualine_c = {'filename'},
-		lualine_x = {'filetype'},
-		lualine_y = {},
-		lualine_z = {'location'}
-	},
+    options = { theme = 'nightfly' },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch'},
+        lualine_c = {'filename'},
+        lualine_x = {'filetype'},
+        lualine_y = {},
+        lualine_z = {'location'}
+    },
 }
 
--- Prettier
-
-vim.g['prettier#autoformat'] = 1
-vim.g['prettier#autoformat_require_pragma'] = 0
+-- Snippy
+require('snippy').setup({
+    mappings = {
+        is = {
+            ['<Tab>'] = 'expand_or_advance',
+            ['<S-Tab>'] = 'previous',
+        },
+        nx = {
+            ['<leader>x'] = 'cut_text',
+        },
+    },
+})
 
