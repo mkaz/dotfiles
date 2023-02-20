@@ -27,8 +27,8 @@ matches:
   - trigger: ":deg"
     replace: "°"
 
-  - trigger: ":riotmac"
-    replace: "A8:03:2A:3A:CE:C6"
+  - trigger: ":tm"
+    replace: "™"
 
   # Dates
   - trigger: ":date"
