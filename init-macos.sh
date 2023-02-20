@@ -35,8 +35,11 @@ brew install --cask homebrew/cask-fonts/font-hack
 # Install Node using volta
 # curl https://get.volta.sh | bash
 
-# Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Ruff
+brew install ruff
 
 # espanso
+# Slack
+# Moom
+# Syncthing
 
