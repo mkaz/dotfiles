@@ -1,5 +1,8 @@
 snippet #!
     #!/usr/bin/env python3
+    """
+    ${1:about}
+    """
 
 
     def main():
@@ -20,6 +23,5 @@ snippet match
 
 snippet with
     with open("${1:filename}") as f:
-        for line in f:
-            ${2:pass}
+        lines = [x.strip() for x in f]
 
