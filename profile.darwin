@@ -1,11 +1,11 @@
 # macos / darwin profile init
 # vim: syntax=sh ts=4 sw=4 sts=4 sr et
 
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias vihosts='sudo nvim /etc/hosts'
 alias vaconf='nvim /opt/homebrew/etc/httpd/httpd.conf'
 alias mysql='mysql -u root'
 
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias pte='open -a "Plain Text Editor"'
 
 # aliases

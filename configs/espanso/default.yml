@@ -67,9 +67,6 @@ matches:
   - trigger: ":tweuler"
     replace: "Just released Euler #6 in Rust, the next in my screencast series learning Rust going through Project Euler problems."
 
-  - trigger: ":wp"
-    replace: "WordPress"
-
-  - trigger: ":gb"
-    replace: "Gutenberg"
+  - trigger: "hasite"
+    replace: "hastie"
 

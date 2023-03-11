@@ -8,14 +8,14 @@
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin' ,'~/.config/plugged')
-Plug 'bluz71/vim-nightfly-colors'
 Plug 'cloudhead/neovim-fuzzy'          -- fuzzy finder via fzy
 Plug 'dcampos/nvim-snippy'             -- snippets
 Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
 Plug 'junegunn/vim-slash'              -- search highlighting
 Plug 'luukvbaal/nnn.nvim'
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
-Plug 'nvim-lualine/lualine.nvim'       -- Statusline
+Plug 'mhartington/oceanic-next'        -- oceanic
+Plug 'PeterRincker/vim-searchlight'    -- highlight current search so can see cursor
 Plug 'psf/black'
 Plug 'tommcdo/vim-lion'                -- alignment motion
 Plug 'tpope/vim-commentary'            -- comment code
@@ -25,8 +25,6 @@ Plug 'tpope/vim-surround'              -- surround motion
 -- Plug 'xolox/vim-misc'
 vim.call('plug#end')
 
--- Settings
-vim.cmd('colorscheme nightfly')
 
 vim.opt.tabstop     = 4
 vim.opt.shiftwidth  = 4
@@ -42,8 +40,11 @@ vim.opt.backup      = false   -- no backups
 vim.opt.mouse       = 'vi'    -- enable mouse support
 vim.opt.visualbell  = false   -- shhhh
 vim.opt.errorbells  = false   -- shhhh
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.foldenable = false
+
+-- Settings
+vim.cmd('colorscheme OceanicNext')
 
 -- Searching
 vim.opt.ignorecase = true
@@ -119,42 +120,12 @@ vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
 -- File Formats
 -- =========================================================
 
--- Markdown
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-    pattern = '*.md',
-    callback = function()
-    vim.opt.wrap = true
-    vim.opt.linebreak = true
-    end
-})
-
-vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'php', 'python'}
-
--- Python
-vim.api.nvim_create_autocmd({'BufWritePre'}, {
-    pattern = '*.py',
-    command = "Black"
-})
-
+-- See ~/.config/nvim/ftplugin for language specific settings
 
 
 -- =========================================================
 -- Plugin Settings
 -- =========================================================
-
-
--- Lualine
-require('lualine').setup {
-    options = { theme = 'nightfly' },
-    sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
-        lualine_x = {'filetype'},
-        lualine_y = {},
-        lualine_z = {'location'}
-    },
-}
 
 -- Snippy
 require('snippy').setup({

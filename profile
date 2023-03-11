@@ -18,7 +18,7 @@ function cat() {
 
 alias curl='curl --silent'
 alias grep='rg -i'
-alias ls='exa --time-style long-iso -l -h --group-directories-first'
+alias ls='gls --hyperlink=auto -l --group-directories-first --color'
 alias ll='ls -a --git'
 alias o='open'
 alias rg='rg -i'
@@ -30,6 +30,7 @@ alias vim='nvim'
 alias cd..='cd ..'
 alias cd...='cd ../../'
 alias cd....='cd ../../../'
+alias cdvim='cd ~/.config/nvim'
 
 # shh
 export BASH_SILENCE_DEPRECATION_WARNING=1

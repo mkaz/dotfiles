@@ -13,7 +13,7 @@ mkdir ~/Downloads/
 ## Install homebrew
 
 # Basics
-brew install autojump bat exa fd jq just ripgrep sd starship
+brew install autojump bat coreutils fd just ripgrep sd starship
 
 # Password store
 brew install pass
@@ -33,7 +33,11 @@ ln -s $HOME/dotfiles/configs/nvim $HOME/.config/nvim
 brew install --cask homebrew/cask-fonts/font-hack
 
 # Install Node using volta
-# curl https://get.volta.sh | bash
+# curl https://get.volta.sh | bash"
+
+# Python ---------------------------------
+# TODO: Install python
+python3 -m pip install neovim
 
 # Ruff
 brew install ruff

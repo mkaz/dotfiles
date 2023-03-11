@@ -10,3 +10,4 @@ __pycache__
 .vercel
 .env.local
 tasks.db
+poetry.lock
