@@ -14,15 +14,13 @@ Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
 Plug 'junegunn/vim-slash'              -- search highlighting
 Plug 'luukvbaal/nnn.nvim'
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
-Plug 'mhartington/oceanic-next'        -- oceanic
 Plug 'PeterRincker/vim-searchlight'    -- highlight current search so can see cursor
 Plug 'psf/black'
 Plug 'tommcdo/vim-lion'                -- alignment motion
 Plug 'tpope/vim-commentary'            -- comment code
 Plug 'tpope/vim-markdown'              -- markdown
 Plug 'tpope/vim-surround'              -- surround motion
--- Plug 'xolox/vim-colorscheme-switcher'  -- utility for switch colorscheme with F8
--- Plug 'xolox/vim-misc'
+Plug 'vimwiki/vimwiki'
 vim.call('plug#end')
 
 
@@ -44,7 +42,7 @@ vim.opt.termguicolors = false
 vim.opt.foldenable = false
 
 -- Settings
-vim.cmd('colorscheme OceanicNext')
+vim.cmd('colorscheme atom-dark')
 
 -- Searching
 vim.opt.ignorecase = true
@@ -81,7 +79,9 @@ keymap('n', "<Leader>'", "ysiw'", shh)
 keymap('n', '<Leader>"', 'ysiw"', shh)
 
 -- Fuzzy finder
+vim.cmd('let g:fuzzy_rootcmds = [ ["git", "rev-parse", "--show-toplevel"] ]')
 keymap('n', '<Leader>p', ':FuzzyOpen<CR>', opts)
+
 
 -- Telescope file
 keymap('n', '<F2>', ":NnnExplorer<CR>", opts)
