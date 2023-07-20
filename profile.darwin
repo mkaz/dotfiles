@@ -8,6 +8,8 @@ alias mysql='mysql -u root'
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias pte='open -a "Plain Text Editor"'
 
+alias t='/Library/Frameworks/Python.framework/Versions/3.11/bin/tasks'
+
 # aliases
 function apache() {
     brew services $@ httpd
