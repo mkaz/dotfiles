@@ -50,7 +50,7 @@ vim.opt.smartcase  = true
 
 vim.opt.listchars  = 'tab:▸-,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»'
 
-vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+vim.g.python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.11/bin/python3'
 
 
 -- KEYBINDINGS
