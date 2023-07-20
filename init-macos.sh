@@ -13,7 +13,9 @@ mkdir ~/Downloads/
 ## Install homebrew
 
 # Basics
-brew install autojump bat coreutils fd just ripgrep sd starship
+brew install autojump coreutils fd fzf just ripgrep sd starship
+# after install
+/opt/homebrew/opt/fzf/install
 
 # Password store
 brew install pass
