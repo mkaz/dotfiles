@@ -1,9 +1,4 @@
-/* ==UserStyle==
-@name           Hacked News
-@namespace      mkaz
-@version        v2
-==/UserStyle== */
-@-moz-document url-prefix("https://news.ycombinator.com/") {
+
 
 /* Header System Fonts */
 input, textarea, .pagetop {
@@ -14,7 +9,7 @@ input, textarea, .pagetop {
 
 /* Main Article Fonts */
 body, td, table {
-    font-family: "IBM Plex Serif", serif;
+    font-family: "PT Serif", serif;
     font-weight: 300;
     font-size: 14px;
 }
@@ -123,7 +118,7 @@ span.pagetop b,
 
 .athing .title a:link,
 .athing .title a:visited {
-  color: rgba(0, 0, 0, 0.9);
+  color: #333333;
   font-size: 16px;
 }
 
@@ -131,7 +126,7 @@ span.pagetop b,
 .athing .title .comhead,
 .athing .title .comhead a:link {
     font-size: 11px;
-    color: rgba(0, 0, 0, 0.4);
+    color: #AAAAAA;
 }
 
 .athing .title .comhead {
@@ -215,6 +210,4 @@ td.ind {
 
 td.votelinks {
   width: 0px;
-}
-
 }
