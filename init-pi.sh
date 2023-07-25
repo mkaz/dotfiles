@@ -5,8 +5,8 @@
 UNAME=`uname`
 cd $HOME
 
-rm -f .profile
-ln -s dotfiles/profile .profile
+#rm -f .profile
+#ln -s dotfiles/profile .profile
 
 mkdir ~/bin/
 mkdir ~/src/
@@ -16,45 +16,18 @@ mkdir ~/.config/
 ## update & upgrade
 sudo apt update && sudo apt upgrade
 
-sudo apt install -y git sudo zip curl wget neovim
-sudo apt install -y build-essential pwgen htop autojump neofetch
-sudo apt install -y ufw net-tools dnsutils autossh apt-transport-https
-sudo apt install -y ripgrep fzf figlet jq exa bat
+sudo apt install -y git sudo zip curl wget htop autojump neofetch
+sudo apt install -y ufw net-tools dnsutils 
+sudo apt install -y ripgrep fzf figlet
 
 # link up configs
 ln -s $HOME/dotfiles/configs/git/gitattributes $HOME/.gitattributes
 ln -s $HOME/dotfiles/configs/git/gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/configs/git/gitignore $HOME/.gitignore
-
-# Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
-
-# LAMP
-read -p "Install LAMP Stack? (Y/n) " lamp
-if [ "$lamp" != "${lamp#[Nn]}" ]; then
-	echo "✖ Skipping LAMP"
-else
-	echo "✔ Installing LAMP Stack"
-    sudo apt install -y apache2
-    sudo apt install -y mariadb-client mariadb-server
-    sudo apt install -y php libapache2-mod-php php-cli php-curl php-gd php-imagick php-intl php-mbstring php-mysql php-xml
-    sudo a2enmod rewrite expires vhost_alias ssl headers
-fi
-
-# wp cli
-if [ ! -f "$HOME/bin/wp" ]; then
-    cd $HOME/tmp/
-    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-    chmod +x wp-cli.phar
-    cp wp-cli.phar $HOME/bin/wp
-    cd
-fi
+ln -s $HOME/dotfiles/configs/vimrc $HOME/.vimrc
 
 sudo ufw allow ssh
 sudo ufw limit ssh
 sudo ufw allow 80           # http
-sudo ufw allow 8384         # syncthing
-sudo ufw allow 22000        # syncthing
-sudo ufw allow 21027/udp    # syncthing
 sudo ufw enable
 

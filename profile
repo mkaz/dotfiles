@@ -1,17 +1,18 @@
 # mkaz bash init
 # vim: syntax=sh ts=4 sw=4 sts=4 sr et
 SYS=$(uname -s | awk '{print tolower($0)}')
+
+RELEASE=$(lsb_release --id --short)
+
 export EDITOR='nvim'
 #export GPG_TTY=$(tty)
 PATH=".:$HOME/bin:$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
 
 alias curl='curl --silent'
 alias grep='rg -i'
-alias ls='gls --hyperlink=auto -lh --group-directories-first --color'
-alias ll='ls -a --git'
-alias o='open'
+alias ls='ls -alh --group-directories-first --color'
+alias ll='ls -a'
 alias rg='rg -i'
-alias sc='sc-im'
 alias wget='wget -q'
 alias vim='nvim'
 
@@ -35,3 +36,6 @@ if [[ -e ~/dotfiles/profile.$SYS ]]; then
     source ~/dotfiles/profile.$SYS
 fi
 
+if [ "$RELEASE" = "Raspbian" ]; then
+    source ~/dotfiles/profile.pi
+fi

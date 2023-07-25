@@ -1,0 +1,19 @@
+set encoding=utf-8
+syntax on
+
+set number
+set ruler
+set laststatus=2
+
+set autoindent
+set smartindent
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+set backspace=indent,eol,start
+
+set nolist
+set listchars=tab:▸\ ,space:·,nbsp:·,precedes:←,extends:→
