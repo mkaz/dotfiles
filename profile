@@ -14,6 +14,7 @@ alias ls='ls -alh --group-directories-first --color'
 alias ll='ls -a'
 alias rg='rg -i'
 alias wget='wget -q'
+alias vi='nvim'
 alias vim='nvim'
 
 # moving around
@@ -21,6 +22,9 @@ alias cd..='cd ..'
 alias cd...='cd ../../'
 alias cd....='cd ../../../'
 alias cdvim='cd ~/.config/nvim'
+
+# shortcuts
+alias dj='source ~/.venvs/django/bin/activate'
 
 # shh
 export BASH_SILENCE_DEPRECATION_WARNING=1
