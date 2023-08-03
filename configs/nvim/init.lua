@@ -32,7 +32,7 @@ vim.opt.fileformats = 'unix'
 vim.opt.wrap        = false
 vim.opt.linebreak   = true
 vim.opt.number      = true    -- show line numbers
-vim.opt.showmode    = false
+vim.opt.showmode    = true    -- show insert/normal mode
 vim.opt.scrolloff   = 2
 vim.opt.backup      = false   -- no backups
 vim.opt.mouse       = 'vi'    -- enable mouse support
@@ -82,6 +82,9 @@ keymap('n', '<Leader>"', 'ysiw"', shh)
 vim.cmd('let g:fuzzy_rootcmds = [ ["git", "rev-parse", "--show-toplevel"] ]')
 keymap('n', '<Leader>p', ':FuzzyOpen<CR>', opts)
 
+
+-- Map F1 to ESC to avoid miss hits
+keymap('i', '<F1>', "<ESC>", opts)
 
 -- Telescope file
 keymap('n', '<F2>', ":NnnExplorer<CR>", opts)
