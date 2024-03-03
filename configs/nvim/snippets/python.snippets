@@ -25,3 +25,45 @@ snippet with
     with open("${1:filename}") as f:
         lines = [x.strip() for x in f]
 
+snippet aoc
+	import sys
+	sys.path.append("../../lib")
+
+
+	def main():
+		print("----------------------------")
+		print("Advent of Code: Day {day}, {year}")
+		print("----------------------------\\n")
+
+		filename = "day{day}.data"
+		filename = "sample.data"
+		data = parse(filename)
+		print(f"Part 1: {{part1(data)}}")
+		print(f"Part 2: {{part2(data)}}")
+
+
+	def part1(data):
+		""" """
+		return 0
+
+
+	def part2(data):
+		""" """
+		return 0
+
+
+	def parse(filename):
+		data = []
+
+		with open(filename) as f:
+			lines = [x.rstrip() for x in f]
+
+		for line in lines:
+			pass
+
+		return data
+
+
+	if __name__ == "__main__":
+		main()
+

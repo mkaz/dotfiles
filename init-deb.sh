@@ -1,58 +1,46 @@
 #!/bin/bash
 
-# Install script for setting up my Ubuntu
+# Install script for setting up a Debian server
 
 UNAME=`uname`
 cd $HOME
 
 rm -f .profile
 ln -s dotfiles/profile .profile
-ln -s ~/Documents/Sync/pass-store .password-store
 
 mkdir ~/bin/
 mkdir ~/src/
 mkdir ~/tmp/
-mkdir ~/Downloads/
 
 ## update & upgrade
-sudo apt update && sudo apt upgrade -y
+sudo apt update && apt upgrade
 
 ## use stow to configure rcfiles
 cd ~/dotfiles/
 
-sudo apt install -y git zip curl wget ufw neovim neovim-qt
-sudo apt install -y build-essential pwgen htop pass autojump neofetch uuid-runtime
-sudo apt install -y net-tools dnsutils autossh apt-transport-https syncthing
-sudo apt install -y gnome-tweaks gnome-shell-pomodoro gnome-dictionary
-sudo apt install -y bat exa fzf fzy ripgrep
-sudo apt install -y fonts-hack fonts-ibm-plex fonts-cabin fonts-roboto fonts-noto-color-emoji
+sudo apt install -y sudo zip curl wget ufw
+sudo apt install -y htop autojump neofetch
+sudo apt install -y net-tools dnsutils autossh apt-transport-https
+sudo apt install -y ripgrep fzf exa fd-find bat
 
-# link up configs
-ln -s $HOME/dotfiles/configs/git/gitattributes $HOME/.gitattributes
-ln -s $HOME/dotfiles/configs/git/gitconfig $HOME/.gitconfig
-ln -s $HOME/dotfiles/configs/git/gitignore $HOME/.gitignore
+# LAMP
+echo "✔ Installing LAMP stack"
+sudo apt install -y apache2
+sudo apt install -y mariadb-client mariadb-server
+sudo apt install -y php libapache2-mod-php php-cli php-curl php-gd php-imagick php-intl php-mbstring php-mysql php-xml
+sudo a2enmod rewrite expires vhost_alias ssl headers
 
-# symlink config
-mkdir -p $HOME/.config
-ln -s $HOME/dotfiles/configs/nvim $HOME/.config/nvim
-
-
-# enable and start syncthing
-sudo systemctl enable syncthing@mkaz.service
-sudo systemctl start syncthing@mkaz.service
+# wp cli
+if [ ! -f "$HOME/bin/wp" ]; then
+    cd $HOME/Downloads
+    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    chmod +x wp-cli.phar
+    cp wp-cli.phar $HOME/bin/wp
+    cd
+fi
 
 # configure firewall
 sudo ufw allow ssh
 sudo ufw limit ssh
-sudo ufw allow 22000        # syncthing
-sudo ufw allow 21027/udp    # syncthing
+sudo ufw allow 80
 sudo ufw enable
-
-# Python
-sudo apt install -y python3-pip
-
-# espanso
-# wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
-# sudo apt install -y ./espanso-debian-amd64.deb
-
-

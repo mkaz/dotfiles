@@ -6,14 +6,21 @@
 -- Use vim-plug to manage plugins
 -- See: https://github.com/junegunn/vim-plug
 
+-- disable default file browser
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local Plug = vim.fn['plug#']
 vim.call('plug#begin' ,'~/.config/plugged')
 Plug 'cloudhead/neovim-fuzzy'          -- fuzzy finder via fzy
 Plug 'dcampos/nvim-snippy'             -- snippets
 Plug 'editorconfig/editorconfig-vim'   -- support editorconfig settings
+Plug 'joshdick/onedark.vim'            -- color
 Plug 'junegunn/vim-slash'              -- search highlighting
-Plug 'luukvbaal/nnn.nvim'
 Plug 'maxmellon/vim-jsx-pretty'        -- pretty jsx
+Plug 'nvchad/nvterm'         -- tree
+Plug 'nvim-tree/nvim-tree.lua'         -- tree
+Plug 'nvim-tree/nvim-web-devicons'     -- tree icons
 Plug 'PeterRincker/vim-searchlight'    -- highlight current search so can see cursor
 Plug 'psf/black'
 Plug 'tommcdo/vim-lion'                -- alignment motion
@@ -42,7 +49,7 @@ vim.opt.termguicolors = false
 vim.opt.foldenable = false
 
 -- Settings
-vim.cmd('colorscheme atom-dark')
+vim.cmd('colorscheme onedark')
 
 -- Searching
 vim.opt.ignorecase = true
@@ -85,9 +92,10 @@ keymap('n', '<Leader>p', ':FuzzyOpen<CR>', opts)
 
 -- Map F1 to ESC to avoid miss hits
 keymap('i', '<F1>', "<ESC>", opts)
+keymap('n', '<F1>', "<ESC>", opts)
 
 -- Telescope file
-keymap('n', '<F2>', ":NnnExplorer<CR>", opts)
+keymap('n', '<F2>', ":NvimTreeOpen<CR>", opts)
 
 -- Unhighlight Search using ,SPC
 -- vim-slash helps by unhighlighting on move
@@ -115,6 +123,8 @@ keymap('n', '<S-Tab>',   ':bprev<CR>', opts)  -- previous buffer
 keymap('n', '<Leader>3', ':b#<CR>',    opts)  -- recent buffer
 keymap('n', '<Leader>a', ':only<CR>',  opts)  -- only buffer
 keymap('n', 'Q',         ':bd!<CR>',   opts)  -- close buffer
+
+keymap('n', '<Leader>b', ':lua require("nvterm.terminal").send("py " .. vim.fn.expand("%"), "float")<CR>', opts)
 
 -- :w!! to save with sudo
 vim.cmd('ca w!! w !sudo tee >/dev/null "%"')
@@ -144,5 +154,29 @@ require('snippy').setup({
 })
 
 -- NNN
-require("nnn").setup()
+-- require("nnn").setup({
+--     explorer = {
+--         width = 48,
+--     },
+-- })
+
+--- NvimTree
+require("nvim-tree").setup({
+    filters = {
+        custom = { ".git", "__pycache__", "__init__.py"}
+    },
+    git = {
+        enable = false
+    },
+    renderer = {
+        icons = {
+            show = {
+                folder_arrow = false,
+            },
+        },
+    },
+})
+
+require("nvterm").setup()
+
 
