@@ -1,0 +1,66 @@
+[
+  { "keyword": ":em",
+    "text": "—",
+    "name": "EM"
+  },
+
+  { "keyword": ":half",
+    "text": "½",
+    "name": "Half char"
+  },
+
+  { "keyword": ":quarter",
+    "text": "¼",
+    "name": "Quarter char"
+  },
+
+  { "keyword": ":third",
+    "text": "⅓",
+    "name": "Third char"
+  },
+
+  { "keyword": ":threeq",
+    "text": "¾",
+    "name": "Three Quarter char"
+  },
+
+  { "keyword": ":deg",
+    "text": "°",
+    "name": "Degree char"
+  },
+
+  { "keyword": ":tm",
+    "text": "™",
+    "name": "Trademark char"
+  },
+
+  { "keyword": ":lorem",
+    "text": "Lorem ipsum, dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper.",
+    "name": "Lorem ipsum"
+  },
+
+  { "keyword": ":yes-tech",
+    "text": "Good technical background and experience",
+    "name": "Hiring: Yes Tech"
+  },
+
+  { "keyword": ":yes-plat",
+    "text": "Good technical background and experience for platform",
+    "name": "Hiring: Yes Platform"
+  },
+
+  { "keyword": ":yes-man",
+    "text": "Good technical background with lead and management experience",
+    "name": "Hiring: Yes Manager"
+  },
+
+  { "keyword": ":no-tech",
+    "text": "Not enough technical experience as Staff or higher",
+    "name": "Hiring: No tech"
+  },
+
+  { "keyword": ":no-man",
+    "text": "Not enough experience as Lead, Manager, or Principal",
+    "name": "Hiring: No manager"
+  }
+]
