@@ -3,7 +3,6 @@
 # Install script for setting up macOS
 
 rm -f .profile
-ln -s dotfiles/profile .profile
 
 mkdir ~/bin/
 mkdir ~/src/
@@ -44,8 +43,12 @@ python3 -m pip install neovim
 # Ruff
 brew install ruff
 
-# espanso
-# Slack
-# Moom
+# Raycast
 # Syncthing
+# 1Passwd
+# Moom
+# Kitty
 
+# Firefox
+# Obsidian
+# Slack

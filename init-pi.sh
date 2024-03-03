@@ -14,11 +14,11 @@ mkdir ~/tmp/
 mkdir ~/.config/
 
 ## update & upgrade
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 
 sudo apt install -y git sudo zip curl wget htop autojump neofetch
-sudo apt install -y ufw net-tools dnsutils 
-sudo apt install -y ripgrep fzf figlet
+sudo apt install -y ufw net-tools dnsutils vim vim-nox
+sudo apt install -y ripgrep fzf figlet fdfind
 
 # link up configs
 ln -s $HOME/dotfiles/configs/git/gitattributes $HOME/.gitattributes
