@@ -12,7 +12,7 @@ mkdir ~/Downloads/
 ## Install homebrew
 
 # Basics
-brew install autojump coreutils fd fzf just ripgrep sd starship
+brew install coreutils eza fd fzf just ripgrep sd starship zoxide
 # after install
 /opt/homebrew/opt/fzf/install
 
@@ -39,6 +39,7 @@ brew install --cask homebrew/cask-fonts/font-hack
 # Python ---------------------------------
 # TODO: Install python
 python3 -m pip install neovim
+python3 -m pip install 'xonsh[full]'
 
 # Ruff
 brew install ruff

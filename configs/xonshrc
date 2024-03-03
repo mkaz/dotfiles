@@ -1,0 +1,24 @@
+
+# xonshrc
+
+$PATH.insert(0, '/opt/homebrew/bin') 
+$PATH.insert(0, '/Users/mkaz/bin') 
+
+$EDITOR = 'nvim'
+
+aliases['curl'] = 'curl --silent'
+aliases['ls'] = 'eza -l --git --time-style=long-iso'
+aliases['py'] = '/Library/Frameworks/Python.framework/Versions/3.12/bin/python3'
+aliases['rg'] = 'rg -i'
+aliases['vim'] = 'nvim'
+aliases['subl'] = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
+aliases['pte'] = 'open -a "Plain Text Editor"'
+
+
+# zoxide
+execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+
+# Starship prompt
+$STARSHIP_CONFIG = '/Users/mkaz/dotfiles/configs/starship/config.toml'
+execx($(starship init xonsh))
+

@@ -5,6 +5,10 @@ add_newline = true
 [aws]
 disabled = true
 
+# default prompt character
+[character]
+disabled = true  # disable to use xonsh shell
+
 [cmd_duration]
 disabled = true
 
@@ -40,6 +44,7 @@ format = "$symbol($style)"
 [shell]
 bash_indicator = ""
 powershell_indicator ="PS "
+xonsh_indicator = "🐚 "
 format="[$indicator](blue)"
 disabled = false
 
